@@ -1,0 +1,14 @@
+C:\Users\Marcus\source\repos\Jeu_C#\bin\Debug\net7.0\Jeu_C#.exe
+C:\Users\Marcus\source\repos\Jeu_C#\bin\Debug\net7.0\Jeu_C#.deps.json
+C:\Users\Marcus\source\repos\Jeu_C#\bin\Debug\net7.0\Jeu_C#.runtimeconfig.json
+C:\Users\Marcus\source\repos\Jeu_C#\bin\Debug\net7.0\Jeu_C#.dll
+C:\Users\Marcus\source\repos\Jeu_C#\bin\Debug\net7.0\Jeu_C#.pdb
+C:\Users\Marcus\source\repos\Jeu_C#\obj\Debug\net7.0\Jeu_C#.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Marcus\source\repos\Jeu_C#\obj\Debug\net7.0\Jeu_C#.AssemblyInfoInputs.cache
+C:\Users\Marcus\source\repos\Jeu_C#\obj\Debug\net7.0\Jeu_C#.AssemblyInfo.cs
+C:\Users\Marcus\source\repos\Jeu_C#\obj\Debug\net7.0\Jeu_C#.csproj.CoreCompileInputs.cache
+C:\Users\Marcus\source\repos\Jeu_C#\obj\Debug\net7.0\Jeu_C#.dll
+C:\Users\Marcus\source\repos\Jeu_C#\obj\Debug\net7.0\refint\Jeu_C#.dll
+C:\Users\Marcus\source\repos\Jeu_C#\obj\Debug\net7.0\Jeu_C#.pdb
+C:\Users\Marcus\source\repos\Jeu_C#\obj\Debug\net7.0\Jeu_C#.genruntimeconfig.cache
+C:\Users\Marcus\source\repos\Jeu_C#\obj\Debug\net7.0\ref\Jeu_C#.dll

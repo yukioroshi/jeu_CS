@@ -1,5 +1,4 @@
 ﻿// See https://aka.ms/new-console-template for more information
-//Console.WriteLine("Hello, World!");
 /*dotnet new console -n titre => creer une solution de nom titre */
 
 using System.Diagnostics;
@@ -9,17 +8,13 @@ public class HelloWorld
 {
     public static void Main(string[] argv)
     {
-        string Name = Console.ReadLine();
-
-
         //Test1 t = new Test1();
         //Console.BackgroundColor = ConsoleColor.Red;
         /*Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine("[033[0;30m]" +"\t Hello, World!");
         Console.ForegroundColor = ConsoleColor.White;
         t.fct();*/
-        //Player p = new Player();
-        Player p = new Player(Name);
+        Player p = new Player();
         MapGame m = new MapGame(" + ", 10, 10);
         m.addElement(" M ", 4, 7);
         p.displayInfo();

@@ -1,18 +1,15 @@
-
-public abstract class Magic
-{
+﻿
+public abstract class Magic {
 
     private string spell_name;
     private int level_spell;
-
-    public Magic()
-    {
-        spell_name = "";
+    
+    public Magic() { 
+        spell_name = ""; 
         level_spell = 0;
-    }
-    public Magic(string spell_name)
-    {
-        this.spell_name = spell_name;
+    }  
+    public Magic(string spell_name) { 
+        this.spell_name = spell_name; 
     }
 
     public string getSpellName()

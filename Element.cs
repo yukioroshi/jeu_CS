@@ -1,4 +1,4 @@
-public enum Element
+﻿public enum Element
 {
-    None, Earth, Fire, Light, Darkness, Water, Wind
+    None, Earth, Fire, Light,Darkness, Water, Wind
 }

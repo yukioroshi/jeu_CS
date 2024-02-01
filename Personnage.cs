@@ -1,34 +1,34 @@
-
+﻿
 /*classe qui represente les personnages du jeu*/
 public class Character
 {
     private string name;    //nom du perso 
     private int lifePoint;  //ses pv
-    private int magicPoint;
+    private int magicPoint; 
     private int atk_stat;   //moy de ses atk
     private int def_stat;   //moy de ses def
     private int level;      //niveau d'exp
     int posX, posY;         //position dans la map
-    private LinkedList<Attack> atk; //list de ces atk
-    private LinkedList<Magic> magic;    //list de ses sort agic
+    private LinkedList<Competence> comp; //list de ces atk
+    //private LinkedList<Magic> magic;    //list de ses sort agic
     //private Element weeakness;
     //private Element strength;
 
     public Character()
     {
         this.name = "CharacterName";
-        this.lifePoint = 0;
-        this.magicPoint = 0;
-        this.atk_stat = 0;
-        this.def_stat = 0;
-        this.level = 0;
-        this.posX = 0;
-        this.posY = 0;
-        atk = new LinkedList<Attack>();
-        this.magic = new LinkedList<Magic>();
+        this.lifePoint = 0; 
+        this.magicPoint = 0;    
+        this.atk_stat = 0;  
+        this.def_stat = 0;  
+        this.level = 0; 
+        this.posX = 0;  
+        this.posY = 0;  
+        comp= new LinkedList<Competence>();
+      //  this.magic = new LinkedList<Magic>();
     }
 
-    public Character(string name, int lifePoint, int magicPoint, int atk_stat, int def_stat, int level, int posX, int posY, LinkedList<Attack> atk, LinkedList<Magic> magic)
+    public Character(string name, int lifePoint, int magicPoint, int atk_stat, int def_stat, int level, int posX, int posY, LinkedList<Competence> comp/* LinkedList<Magic> magic*/)
     {
         this.name = name;
         this.lifePoint = lifePoint;
@@ -38,8 +38,8 @@ public class Character
         this.level = level;
         this.posX = posX;
         this.posY = posY;
-        this.atk = atk;
-        this.magic = magic;
+        this.comp = comp;
+       // this.magic = magic;
     }
 
     public Character(Character c)
@@ -52,8 +52,8 @@ public class Character
         this.level = c.getLevel();
         this.posX = c.getPositionX();
         this.posY = c.getPositionY();
-        this.atk = c.getAtk();
-        this.magic = c.getMagic();
+        this.comp= c.getCompetence();
+       // this.magic = c.getMagic();
     }
 
     public string getName()
@@ -71,8 +71,8 @@ public class Character
     public int getLevel() { return level; }
     public int getPositionX() { return posX; }
     public int getPositionY() { return posY; }
-    public LinkedList<Attack> getAtk() { return atk; }
-    public LinkedList<Magic> getMagic() { return magic; }
+    public LinkedList<Competence> getCompetence() { return comp; }
+    //public LinkedList<Magic> getMagic() { return magic; }
 
     public bool isAlive()
     {

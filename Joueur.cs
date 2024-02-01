@@ -1,4 +1,4 @@
-
+﻿
 /*class qui represente l'utilisateur(le joueur)*/
 using System.ComponentModel.DataAnnotations;
 
@@ -14,9 +14,9 @@ public class Player
     private LinkedList<Character> stored_perso;
     //liste des objets posseder par le joueur
     private LinkedList<Objet> obj;
-
+    
     /*constructeur par defaut*/
-    public Player()
+     public Player()
     {
         id_name = "idPlayer";
         current = new Character();
@@ -24,29 +24,16 @@ public class Player
         stored_perso = new LinkedList<Character>(); ;
         obj = new LinkedList<Objet>();
     }
-
     /*constructeur*/
-    public Player(string id_name)
-    {
-        this.id_name = id_name;
-        current = new Character();
-        active_perso = new LinkedList<Character>(); ;
-        stored_perso = new LinkedList<Character>(); ;
-        obj = new LinkedList<Objet>();
-    }
-    
-    public Player(string name, LinkedList<Character> stored_c, LinkedList<Objet> o)
-    {
+    public Player(string name, LinkedList<Character> stored_c, LinkedList<Objet> o){
         stored_perso = new LinkedList<Character>();
         active_perso = new LinkedList<Character>();
-        obj = new LinkedList<Objet>();
-        foreach (Character tmp in stored_c)
-        {//Rpl : le foreach ne permet que de lire, pas de modifier
+        obj = new LinkedList<Objet>();  
+        foreach(Character tmp in stored_c){//Rpl : le foreach ne permet que de lire, pas de modifier
             stored_perso.AddLast(tmp);
         }
         setActiveCharacter(0, 1, 2);
-        foreach (Objet tmp2 in o)
-        {
+        foreach(Objet tmp2 in o){
             obj.AddLast(tmp2);
         }
         current = new Character(active_perso.ElementAt<Character>(0));
@@ -63,12 +50,12 @@ public class Player
     public int getNbActiveCharacter()
     {
         int count = 0;
-        foreach (Character p in active_perso)
+        foreach(Character p in active_perso)
         {
             if (p.isAlive())
                 count++;
         }
-
+        
         return count;
     }
 
@@ -92,10 +79,9 @@ public class Player
     /*fixe les personnages (3) que le joueur va utiliser dans ces combats*/
     public void setActiveCharacter(int un, int deux, int trois)
     {
-        if ((un < 0) || (un > stored_perso.Count())
-           || (deux < 0) || (deux > stored_perso.Count()) || (trois < 0)
-           || (trois > stored_perso.Count()))
-        {
+        if((un < 0) || (un > stored_perso.Count()) 
+           || (deux < 0) || (deux > stored_perso.Count())|| (trois < 0) 
+           || (trois > stored_perso.Count())){
             Console.WriteLine("Erreur index : setActiveCharacter dans Joueur.cs");
             return;
         }
@@ -104,22 +90,22 @@ public class Player
         active_perso.AddLast(stored_perso.ElementAt<Character>(trois));
 
     }
-
+    
     public Character getCurrentCharacter()
     {
         return current;
     }
     public void displayInfo()
     {
-        Console.WriteLine("id: " + id_name);
-        Console.Write("[" + current.getName() + "]"
-            + " PV:" + current.getLife()
+        Console.WriteLine("id: "+id_name);
+        Console.Write("[" + current.getName() + "]" 
+            + " PV:" + current.getLife() 
             + " PM:" + current.getMagicPoint()
-            + " Lvl:" + current.getLevel() + "\n"
-            + "team:" + this.getNbActiveCharacter() + "/3\n");
-
+            + " Lvl:"+ current.getLevel() + "\n"
+            + "team:"+this.getNbActiveCharacter()+"/3\n" );
+        
     }
-
+    
     /*fonction de sauvegarde*/
     public void save()
     {
@@ -131,6 +117,6 @@ public class Player
     {
         //lecture dans un fichier
     }
-
-
+  
+        
 }

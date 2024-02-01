@@ -1,11 +1,11 @@
-/*classe pour les objets*/
+﻿/*classe pour les objets*/
 public abstract class Objet
 {
     private string name;
 
     public Objet()
     {
-        name = "";
+        name="";
     }
 
     public Objet(string name)

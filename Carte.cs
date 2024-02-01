@@ -1,4 +1,4 @@
-/*Classe qui represente la map, dans celle-ci on retrouve
+﻿/*Classe qui represente la map, dans celle-ci on retrouve
  * " P " => le personnage actif du joueur
  * " C " => coffre
  * " O " => objet
@@ -11,14 +11,14 @@ public class MapGame
     private int ligne;
     private int colonne;
     private string[] mapAscii; /*matrice de string de 3 caracter ascii*/
-    // private string description; 
+   // private string description; 
 
     public MapGame()
     {
         this.ligne = 0;
-        this.colonne = 0;
+        this.colonne = 0;   
         this.mapAscii = new string[0];
-        //   this.description = "";
+     //   this.description = "";
     }
     /*s est de taille 3*/
     public MapGame(string s, int ligne, int colonne)
@@ -26,13 +26,13 @@ public class MapGame
         this.ligne = ligne;
         this.colonne = colonne;
         this.mapAscii = new string[ligne * colonne];
-        // this.description = "";
+       // this.description = "";
 
-        for (int i = 0; i < ligne; i++)
+        for (int i =0; i<ligne; i++)
         {
             for (int j = 0; j < colonne; j++)
             {
-                mapAscii[i * colonne + j] = s;
+                mapAscii[i*colonne + j] = s;
             }
         }
     }
@@ -53,11 +53,11 @@ public class MapGame
 
         }
 
-        for (int i = 0; i < ligne; i++)
+        for (int i= 0; i<ligne; i++)
         {
-            for (int j = 0; j < colonne; j++)
+            for(int j=0; j<colonne; j++)
             {
-                Console.Write("\t" + mapAscii[i * colonne + j]);
+                Console.Write("\t" + mapAscii[i*colonne + j]);
             }
             Console.Write("\n\n");
         }
@@ -65,19 +65,18 @@ public class MapGame
     }
 
     /*Zone qui affiche la description de ce qui se passe dans la map quand le joueur interagi*/
-    public void displayDescription(string descr = "Rien a signaler\n")
-    {
-        int largeur = 30, hauteur = 4;
-
+    public void displayDescription(string descr="Rien a signaler\n") {
+        int largeur=30, hauteur=4;
+        
         //Console.Write(" ___");
-        for (int i = 0; i < largeur; i++)
+        for(int i = 0; i < largeur; i++)
         {
             Console.Write("___");
-            if (i == largeur - 1)
-                Console.Write("\n");
-
+            if(i==largeur-1)
+              Console.Write("\n");
+            
         }
-
+        
         Console.WriteLine("Description :\n");
         Console.WriteLine("-> " + descr);
         for (int i = 0; i < hauteur; i++)
@@ -127,7 +126,7 @@ public class MapGame
     /*ajoute un element(perso,coffre, objet...) dans la map*/
     public void addElement(string s, int x, int y)
     {
-        if ((x < 0) || (x > ligne))
+        if((x<0)|| (x > ligne))
         {
             Console.WriteLine("Erreur : position x invalide pour addElement");
             return;
@@ -139,13 +138,13 @@ public class MapGame
         }
         else
         {
-            int tmpx = x - 1, tmpy = y - 1;
-            mapAscii[tmpx * colonne + tmpy] = s;
+            int tmpx=x-1, tmpy=y-1;
+            mapAscii[tmpx*colonne + tmpy] = s;
         }
     }
 
-    /*change une partie de la map*/
-    public void changeField(int i, int j, int k, int l)
+    /*change une partie de la map*/ 
+    public void changeField(int i, int j ,int  k, int l)
     {
 
     }

@@ -1,43 +1,43 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net7.0": {}
   },
   "libraries": {},
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\emirabella\\.nuget\\packages\\": {},
+    "C:\\Users\\alesluin\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\emirabella\\source\\repos\\jeu_CS\\jeu_CS.csproj",
-      "projectName": "jeu_CS",
-      "projectPath": "C:\\Users\\emirabella\\source\\repos\\jeu_CS\\jeu_CS.csproj",
-      "packagesPath": "C:\\Users\\emirabella\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\emirabella\\source\\repos\\jeu_CS\\obj\\",
+      "projectUniqueName": "C:\\Users\\alesluin\\Documents\\Jeu_C#\\Jeu_C#.csproj",
+      "projectName": "Jeu_C#",
+      "projectPath": "C:\\Users\\alesluin\\Documents\\Jeu_C#\\Jeu_C#.csproj",
+      "packagesPath": "C:\\Users\\alesluin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\alesluin\\Documents\\Jeu_C#\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\emirabella\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\alesluin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net6.0"
+        "net7.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
+        "net7.0": {
+          "targetAlias": "net7.0",
           "projectReferences": {}
         }
       },
@@ -48,8 +48,8 @@
       }
     },
     "frameworks": {
-      "net6.0": {
-        "targetAlias": "net6.0",
+      "net7.0": {
+        "targetAlias": "net7.0",
         "imports": [
           "net461",
           "net462",
@@ -61,12 +61,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "frameworkReferences": {
-          "Microsoft.NETCore.App": {
-            "privateAssets": "all"
-          }
-        },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.417\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.418\\RuntimeIdentifierGraph.json"
       }
     }
   }
