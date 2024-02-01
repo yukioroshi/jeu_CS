@@ -24,7 +24,17 @@ public class Player
         stored_perso = new LinkedList<Character>(); ;
         obj = new LinkedList<Objet>();
     }
+
     /*constructeur*/
+    public Player(string id_name)
+    {
+        this.id_name = id_name;
+        current = new Character();
+        active_perso = new LinkedList<Character>(); ;
+        stored_perso = new LinkedList<Character>(); ;
+        obj = new LinkedList<Objet>();
+    }
+    
     public Player(string name, LinkedList<Character> stored_c, LinkedList<Objet> o)
     {
         stored_perso = new LinkedList<Character>();
