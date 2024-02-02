@@ -1,7 +1,8 @@
 ﻿// See https://aka.ms/new-console-template for more information
 //Console.WriteLine("Hello, World!");
 /*dotnet new console -n titre => creer une solution de nom titre */
-/*dotnet new nunit -n Titre.Tests => pour creer un dossier test unitaire pour le projet*/
+/*dotnet new nunit -n Titre.Tests => pour creer un dossier test unitaire pour le projet
+ Console.ResetColor pour reset la couleur*/
 
 using System.Diagnostics;
 using System.Drawing;
