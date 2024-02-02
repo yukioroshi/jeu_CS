@@ -27,5 +27,27 @@ public class HelloWorld
         m.displayDescription();
         m.indicationManip();
         //Process.Start("cmd.exe","/c cls"); //pour executer une commande cmd
+
+
+        // Boucle while qui continue à lire une touche jusqu'à ce que 'Q' soit pressé
+        while (true)
+        {
+            // Lire la touche
+            ConsoleKeyInfo keyInfo = Console.ReadKey();
+
+            // Afficher la touche pressée
+            //Console.WriteLine("\nTouche pressée: " + keyInfo.Key);
+
+            // Vérifier si la touche 'Q' a été pressée pour quitter la boucle
+            if (keyInfo.Key == ConsoleKey.Q)
+            {
+                //Console.WriteLine("Vous avez appuyé sur 'Q'. Sortie de la boucle.");
+                break;
+            }
+            else
+            {
+                //Console.WriteLine("Appuyez sur une autre touche. Appuyez sur 'Q' pour quitter.");
+            }
+        }
     }
 }
