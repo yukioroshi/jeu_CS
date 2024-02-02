@@ -11,6 +11,7 @@ public class MapGame
     private int ligne;
     private int colonne;
     private string[] mapAscii; /*matrice de string de 3 caracter ascii*/
+    private string field;   //caractere ascii utiliser pour la matrice
     // private string description; 
 
     public MapGame()
@@ -18,11 +19,13 @@ public class MapGame
         this.ligne = 0;
         this.colonne = 0;
         this.mapAscii = new string[0];
+        this.field = "";
         //   this.description = "";
     }
     /*s est de taille 3*/
     public MapGame(string s, int ligne, int colonne)
-    {
+    {   
+        this.field = s;
         this.ligne = ligne;
         this.colonne = colonne;
         this.mapAscii = new string[ligne * colonne];
@@ -32,13 +35,14 @@ public class MapGame
         {
             for (int j = 0; j < colonne; j++)
             {
-                mapAscii[i * colonne + j] = s;
+                mapAscii[i * colonne + j] = this.field;
             }
         }
     }
 
     public int getNbLigne() { return ligne; }
     public int getNbColonne() { return colonne; }
+    public string getField(){ return field; }
     public string[] getMap() { return mapAscii; }
 
     /*affiche la map dans le terminale*/
@@ -130,18 +134,29 @@ public class MapGame
         if ((x < 0) || (x > ligne))
         {
             Console.WriteLine("Erreur : position x invalide pour addElement");
-            return;
+            Environment.Exit(1);
         }
         if ((y < 0) || (y > colonne))
         {
             Console.WriteLine("Erreur : position y invalide pour addElement");
-            return;
+            Environment.Exit(1);
+            
         }
         else
         {
-            int tmpx = x - 1, tmpy = y - 1;
+            int tmpx = x, tmpy = y ;
             mapAscii[tmpx * colonne + tmpy] = s;
         }
+    }
+
+    public void changeCase(string s,int index) {
+        if (index < 0 || index > ligne*colonne)
+        {
+            index = 0;
+            mapAscii[index] = s;
+        }
+        else
+            mapAscii[index] = s; 
     }
 
     /*change une partie de la map*/

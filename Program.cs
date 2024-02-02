@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 //Console.WriteLine("Hello, World!");
 /*dotnet new console -n titre => creer une solution de nom titre */
+/*dotnet new nunit -n Titre.Tests => pour creer un dossier test unitaire pour le projet*/
 
 using System.Diagnostics;
 using System.Drawing;
@@ -20,20 +21,25 @@ public class HelloWorld
         t.fct();*/
         //Player p = new Player();
         Player p = new Player(Name);
-        MapGame m = new MapGame(" + ", 10, 10);
-        m.addElement(" M ", 4, 7);
-        p.displayInfo();
-        m.displayMap();
-        m.displayDescription();
-        m.indicationManip();
-        //Process.Start("cmd.exe","/c cls"); //pour executer une commande cmd
+        MapGame map = new MapGame(" + ", 10, 10);
+        Character character = new Character(" P ");
 
+        map.addElement(character.getRepresentation(),character.getPositionX() ,character.getPositionY());
+        p.displayInfo();
+        map.displayMap();
+        map.displayDescription();
+        map.indicationManip();
+        //keyInfo = Console.ReadKey();
+
+        //Process.Start("cmd.exe","/c cls"); //pour executer une commande cmd <=> Console.Clear()
+
+        ConsoleKeyInfo keyInfo ;
 
         // Boucle while qui continue à lire une touche jusqu'à ce que 'Q' soit pressé
-        while (true)
+        while(true)
         {
             // Lire la touche
-            ConsoleKeyInfo keyInfo = Console.ReadKey();
+            keyInfo = Console.ReadKey();
 
             // Afficher la touche pressée
             //Console.WriteLine("\nTouche pressée: " + keyInfo.Key);
@@ -41,13 +47,31 @@ public class HelloWorld
             // Vérifier si la touche 'Q' a été pressée pour quitter la boucle
             if (keyInfo.Key == ConsoleKey.Q)
             {
-                //Console.WriteLine("Vous avez appuyé sur 'Q'. Sortie de la boucle.");
                 break;
             }
-            else
+           if(keyInfo.Key == ConsoleKey.LeftArrow)
             {
-                //Console.WriteLine("Appuyez sur une autre touche. Appuyez sur 'Q' pour quitter.");
+               character.move(character.getPosition()-1 /*+ map.getNbColonne()*/ , map);
             }
-        }
+            if (keyInfo.Key == ConsoleKey.DownArrow)
+            {
+               character.move(character.getPosition() + map.getNbColonne(), map);
+            }
+            if (keyInfo.Key == ConsoleKey.UpArrow)
+            {
+               character.move(character.getPosition() - map.getNbColonne(), map); 
+            }
+            if (keyInfo.Key == ConsoleKey.RightArrow)
+            {
+               character.move(character.getPosition() + 1 /*map.getNbColonne()*/, map);              
+            }
+
+            Console.Clear();
+            p.displayInfo();
+            map.displayMap();
+            map.displayDescription();
+            map.indicationManip();
+             //keyInfo = Console.ReadKey();
+        } 
     }
 }

@@ -20,6 +20,12 @@ public abstract class Magic
         return spell_name;
     }
 
+    public int getLevelSpell()
+    {
+        return level_spell;
+    }
+
+
     public abstract void spellEffect();
 
     public void LvlRequired(Character c)
