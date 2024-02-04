@@ -4,7 +4,9 @@ public class Character
 {
     private string name;    //nom du perso 
     private int lifePoint;  //ses pv
+    private int lifePointMax;  //ses pv
     private int magicPoint;
+    private int magicPointMax;
     private int atk_stat;   //moy de ses atk
     private int def_stat;   //moy de ses def
     private int level;      //niveau d'exp
@@ -19,7 +21,9 @@ public class Character
     {
         this.name = "CharacterName";
         this.lifePoint = 0;
+        this.lifePointMax = 0;
         this.magicPoint = 0;
+        this.magicPointMax = 0;
         this.atk_stat = 0;
         this.def_stat = 0;
         this.level = 0;
@@ -34,8 +38,10 @@ public class Character
     public Character(string p)
     {
         this.name = "CharacterName";
-        this.lifePoint = 0;
+        this.lifePoint = 10;
+        this.lifePointMax = 10;
         this.magicPoint = 0;
+        this.magicPointMax = 0;
         this.atk_stat = 0;
         this.def_stat = 0;
         this.level = 0;
@@ -47,11 +53,13 @@ public class Character
         this.magic = new LinkedList<Magic>();
     }
 
-    public Character(string name, int lifePoint, int magicPoint, int atk_stat, int def_stat, int level, int posX, int posY, string r, LinkedList<Attack> atk, LinkedList<Magic> magic)
+    public Character(string name, int lifePoint, int lpMax, int magicPoint, int mpMax, int atk_stat, int def_stat, int level, int posX, int posY, string r, LinkedList<Attack> atk, LinkedList<Magic> magic)
     {
         this.name = name;
         this.lifePoint = lifePoint;
+        this.lifePointMax = lpMax;
         this.magicPoint = magicPoint;
+        this.magicPoint = mpMax;
         this.atk_stat = atk_stat;
         this.def_stat = def_stat;
         this.level = level;
@@ -134,7 +142,8 @@ public class Character
 
     public void move(int newpos, MapGame m)
     {
-        if ((newpos < 0) || (newpos >= ((m.getNbLigne()*m.getNbColonne())) - 1))
+        if ((newpos < 0) || (newpos >= ((m.getNbLigne()*m.getNbColonne())) - 1)
+            || m.getField() != m.getCase(newpos))
         {
             // this.pos = 0;
             //Console.WriteLine("Erreur : position x invalide setPosition");
@@ -149,7 +158,7 @@ public class Character
 
 
         }
-       
+        //else if (m.getField() != m.getCase(newpos))
         else
         {
             /*efface la position ancienne et lui affecte le champ 'field' de la map*/
@@ -207,4 +216,40 @@ public class Character
     {
         return lifePoint == 0;
     }
+
+    public void fight(Character ennemy)
+    {
+        int ligne = 17;
+        lifePoint = 10;
+        Console.Clear();        
+        while (this.isAlive())
+        {
+            if (this.isAlive() == false)
+            {
+                Console.WriteLine(this.name+"est K.O.");
+                break;
+            }
+
+            Console.Clear();
+
+            for(int i = 0; i < ligne; i++)
+            {
+                Console.Write("-----"); 
+            }
+            
+            Console.Write("\t\t\t\t" +"["+ennemy.name+"]"+"  PV:"+ennemy.lifePoint
+                         +"  Lvl:"+ennemy.level);
+            Console.WriteLine("\n\n\n\n  ");
+            Console.WriteLine("["+name+"]"+"  Lvl:"+level);
+            Console.WriteLine("Pv:"+lifePoint+"/"+lifePointMax+"  PM:"+magicPoint+"/"+magicPointMax);
+
+            for (int i = 0; i < ligne; i++)
+            {
+                Console.Write("-----");
+            }
+            Console.ReadKey();
+            lifePoint--;
+        }
+    }
+
 }

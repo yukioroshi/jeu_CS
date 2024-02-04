@@ -26,3 +26,17 @@ C:\Users\mlabady\source\repos\jeu_CS\obj\Debug\net6.0\refint\jeu_CS.dll
 C:\Users\mlabady\source\repos\jeu_CS\obj\Debug\net6.0\jeu_CS.pdb
 C:\Users\mlabady\Source\Repos\jeu_CS\obj\Debug\net6.0\jeu_CS.genruntimeconfig.cache
 C:\Users\mlabady\Source\Repos\jeu_CS\obj\Debug\net6.0\ref\jeu_CS.dll
+C:\Users\Marcus\Source\Repos\jeu_CS\bin\Debug\net6.0\jeu_CS.exe
+C:\Users\Marcus\Source\Repos\jeu_CS\bin\Debug\net6.0\jeu_CS.deps.json
+C:\Users\Marcus\Source\Repos\jeu_CS\bin\Debug\net6.0\jeu_CS.runtimeconfig.json
+C:\Users\Marcus\Source\Repos\jeu_CS\bin\Debug\net6.0\jeu_CS.dll
+C:\Users\Marcus\Source\Repos\jeu_CS\bin\Debug\net6.0\jeu_CS.pdb
+C:\Users\Marcus\Source\Repos\jeu_CS\obj\Debug\net6.0\jeu_CS.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Marcus\Source\Repos\jeu_CS\obj\Debug\net6.0\jeu_CS.AssemblyInfoInputs.cache
+C:\Users\Marcus\Source\Repos\jeu_CS\obj\Debug\net6.0\jeu_CS.AssemblyInfo.cs
+C:\Users\Marcus\Source\Repos\jeu_CS\obj\Debug\net6.0\jeu_CS.csproj.CoreCompileInputs.cache
+C:\Users\Marcus\Source\Repos\jeu_CS\obj\Debug\net6.0\jeu_CS.dll
+C:\Users\Marcus\Source\Repos\jeu_CS\obj\Debug\net6.0\refint\jeu_CS.dll
+C:\Users\Marcus\Source\Repos\jeu_CS\obj\Debug\net6.0\jeu_CS.pdb
+C:\Users\Marcus\Source\Repos\jeu_CS\obj\Debug\net6.0\jeu_CS.genruntimeconfig.cache
+C:\Users\Marcus\Source\Repos\jeu_CS\obj\Debug\net6.0\ref\jeu_CS.dll

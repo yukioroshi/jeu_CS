@@ -23,9 +23,11 @@ public class HelloWorld
         //Player p = new Player();
         Player p = new Player(Name);
         MapGame map = new MapGame(" + ", 10, 10);
-        Character character = new Character(" P ");
-
+        Character character = new Character(" P "), ennemy = new Character(" E ");
+        string description = "";
         map.addElement(character.getRepresentation(),character.getPositionX() ,character.getPositionY());
+        ennemy.setPositionX(0,map); ennemy.setPositionY(1,map);
+        map.addElement(ennemy.getRepresentation(), ennemy.getPositionX(),ennemy.getPositionY());
         p.displayInfo();
         map.displayMap();
         map.displayDescription();
@@ -50,29 +52,95 @@ public class HelloWorld
             {
                 break;
             }
-           if(keyInfo.Key == ConsoleKey.LeftArrow)
+            else if(keyInfo.Key == ConsoleKey.LeftArrow)
             {
                character.move(character.getPosition()-1 /*+ map.getNbColonne()*/ , map);
             }
-            if (keyInfo.Key == ConsoleKey.DownArrow)
+            else if (keyInfo.Key == ConsoleKey.DownArrow)
             {
                character.move(character.getPosition() + map.getNbColonne(), map);
             }
-            if (keyInfo.Key == ConsoleKey.UpArrow)
+            else if (keyInfo.Key == ConsoleKey.UpArrow)
             {
                character.move(character.getPosition() - map.getNbColonne(), map); 
             }
-            if (keyInfo.Key == ConsoleKey.RightArrow)
+            else if (keyInfo.Key == ConsoleKey.RightArrow)
             {
                character.move(character.getPosition() + 1 /*map.getNbColonne()*/, map);              
+            }
+            else if(keyInfo.Key == ConsoleKey.F)
+            {
+                if(map.getCase((character.getPosition()+1)) == " E " 
+                    || map.getCase((character.getPosition() + 1)) == " M ")
+                {
+                    description = "Vous avez rencontrer un ennemi ! Voulez-vous le combattre ?\n" +
+                                  "[y]: Combattre\n[n]:Plus tard\n";
+                    keyInfo = Console.ReadKey();
+                    if (keyInfo.Key == ConsoleKey.Y)
+                    {
+                       Console.Clear();
+                       character.fight(ennemy);//fonctionne pas comme prevu
+                    }
+                    if (keyInfo.Key == ConsoleKey.N) { break; }
+
+                }
+                else { description = "Rapprochez vous d'un ennemi pour combattre";
+                    //Console.ReadKey();
+                }
+            }
+            else if (keyInfo.Key == ConsoleKey.I)
+            {
+                if (map.getCase((character.getPosition() + 1)) == " N ")
+                {
+                    description = "dialogue avec un pnj";
+                    //Console.ReadKey();
+                }
+                else
+                {
+                    description = "Rapprochez vous d'un personnage pour parler";
+                    //Console.ReadKey();
+                }
+            }
+            else if (keyInfo.Key == ConsoleKey.O)
+            {
+                if (map.getCase((character.getPosition() + 1)) == " C ")
+                {
+                   description = "Vous avez trouver un coffre";
+                        //Console.ReadKey();
+                }
+                else
+                {
+                   description = "il n'y a pas de coffre ici. Cherchez ailleurs.";
+                        //Console.ReadKey();
+                }
+            }
+            else if (keyInfo.Key == ConsoleKey.V)
+            {
+               description = "Inventaire : cette fonctionnaliter n'est pas encore disponible";
+            }
+            else if (keyInfo.Key == ConsoleKey.C)
+            {
+              description = "Map : cette fonctionnaliter n'est pas encore disponible";
+            }
+            else if (keyInfo.Key == ConsoleKey.S)
+            {
+              description = "Sauvegarde : cette fonctionnaliter n'est pas encore disponible";
+            }
+            else if (keyInfo.Key == ConsoleKey.L)
+            {
+                description = "Legende de la map: cette fonctionnaliter n'est pas encore disponible";
+            }
+            else
+            {
+                description = "Commande incorecte";
             }
 
             Console.Clear();
             p.displayInfo();
             map.displayMap();
-            map.displayDescription();
+            map.displayDescription(description);
             map.indicationManip();
-             //keyInfo = Console.ReadKey();
-        } 
-    }
-}
+            //keyInfo = Console.ReadKey();
+        }
+    } 
+ }

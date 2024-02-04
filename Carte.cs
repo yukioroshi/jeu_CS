@@ -117,7 +117,8 @@ public class MapGame
         Console.Write("[v] : voir inventaire\t");
         Console.Write(" [c] : changer de map \n");
         Console.Write("[s] : sauvegarder\t");
-        Console.WriteLine(" [q] : quitter");
+        Console.Write(" [l] : voir la legende\n");
+        Console.WriteLine("[q] : quitter");
 
         for (int i = 0; i < largeur; i++)
         {
@@ -163,6 +164,32 @@ public class MapGame
     public void changeField(int i, int j, int k, int l)
     {
 
+    }
+
+    public string getCase(int x, int y)
+    {
+        if((x<0) || (x>ligne) )
+        {
+            Console.WriteLine("Erreur : index de ligne de case pour getCase");
+            Environment.Exit(1);
+        } 
+        if((y<0) || (y > colonne))
+        {
+            Console.WriteLine("Erreur : index de colonne case pour getCase");
+            Environment.Exit(1);
+        }
+        return mapAscii[x * colonne + y];
+    }
+
+    public string getCase(int index)
+    {
+        if ((index < 0) || (index > ligne*colonne))
+        {
+            Console.WriteLine("Erreur : index de case pour getCase");
+            Environment.Exit(1);
+        }
+        
+        return mapAscii[index];
     }
 
     /*augmente le nombre de ligne dans la map*/
