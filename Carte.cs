@@ -40,10 +40,24 @@ public class MapGame
         }
     }
 
+    public int size() {  return this.mapAscii.Length; }
     public int getNbLigne() { return ligne; }
     public int getNbColonne() { return colonne; }
     public string getField(){ return field; }
-    public string[] getMap() { return mapAscii; }
+
+    public string getElementMap(int index)
+    {
+        if (index < 0 || index > ligne * colonne)
+        {
+            Console.WriteLine("Erreur: index en dehors pour getElementMap");
+            Environment.Exit(1);
+        }
+
+        return this.mapAscii[index];
+    }
+    public string[] getMap() {
+        return mapAscii;
+    }
 
     /*affiche la map dans le terminale*/
     public void displayMap()

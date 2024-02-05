@@ -22,6 +22,7 @@ public class HelloWorld
         t.fct();*/
         //Player p = new Player();
         Player p = new Player(Name);
+        Sauvegarde savePlayer= new Sauvegarde(p.getPlayerName());
         MapGame map = new MapGame(" + ", 10, 10);
         Character character = new Character(" P "), ennemy = new Character(" E ");
         string description = "";
@@ -142,5 +143,9 @@ public class HelloWorld
             map.indicationManip();
             //keyInfo = Console.ReadKey();
         }
+
+        Console.WriteLine(map.getElementMap(24));
+
+        savePlayer.saveMap2(map);
     } 
  }

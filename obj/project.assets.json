@@ -8,23 +8,23 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\emirabella\\.nuget\\packages\\": {},
+    "C:\\Users\\mlabady\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\emirabella\\Source\\Repos\\jeu_CS\\jeu_CS.csproj",
+      "projectUniqueName": "C:\\Users\\mlabady\\Source\\Repos\\jeu_CS\\jeu_CS.csproj",
       "projectName": "jeu_CS",
-      "projectPath": "C:\\Users\\emirabella\\Source\\Repos\\jeu_CS\\jeu_CS.csproj",
-      "packagesPath": "C:\\Users\\emirabella\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\emirabella\\Source\\Repos\\jeu_CS\\obj\\",
+      "projectPath": "C:\\Users\\mlabady\\Source\\Repos\\jeu_CS\\jeu_CS.csproj",
+      "packagesPath": "C:\\Users\\mlabady\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\mlabady\\Source\\Repos\\jeu_CS\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\emirabella\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\mlabady\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
