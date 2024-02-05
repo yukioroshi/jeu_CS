@@ -111,7 +111,6 @@ public class Player
     }
     public void displayInfo()
     {
-        Console.WriteLine("Appuyez sur une touche. Appuyez sur 'Q' pour quitter.");
         Console.WriteLine("id: " + id_name);
         Console.Write("[" + current.getName() + "]"
             + " PV:" + current.getLife()
