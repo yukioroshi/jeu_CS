@@ -13,47 +13,44 @@ public class Character
     private int posX, posY,pos;         //position dans la map
     private string representation;  //caractere Ascii sur la map
     private LinkedList<Attack> atk; //list de ces atk
-    private LinkedList<Magic> magic;    //list de ses sort agic
     //private Element weeakness;
     //private Element strength;
 
     public Character()
     {
         this.name = "CharacterName";
-        this.lifePoint = 0;
-        this.lifePointMax = 0;
-        this.magicPoint = 0;
-        this.magicPointMax = 0;
+        this.lifePoint = 10;
+        this.lifePointMax = 10;
+        this.magicPoint = 10;
+        this.magicPointMax = 10;
         this.atk_stat = 0;
         this.def_stat = 0;
-        this.level = 0;
+        this.level = 1;
         this.posX = 0;
         this.posY = 0;
         this.pos = 0;
         this.representation = "";
         atk = new LinkedList<Attack>();
-        this.magic = new LinkedList<Magic>();
     }
 
-    public Character(string p)
+    public Character(string name, string p)
     {
-        this.name = "CharacterName";
+        this.name = name;
         this.lifePoint = 10;
         this.lifePointMax = 10;
-        this.magicPoint = 0;
-        this.magicPointMax = 0;
+        this.magicPoint = 100;
+        this.magicPointMax = 100;
         this.atk_stat = 0;
         this.def_stat = 0;
-        this.level = 0;
+        this.level = 1;
         this.posX = 0;
         this.posY = 0;
         this.pos = 0;
         this.representation = p;
         atk = new LinkedList<Attack>();
-        this.magic = new LinkedList<Magic>();
     }
 
-    public Character(string name, int lifePoint, int lpMax, int magicPoint, int mpMax, int atk_stat, int def_stat, int level, int posX, int posY, string r, LinkedList<Attack> atk, LinkedList<Magic> magic)
+    public Character(string name, int lifePoint, int lpMax, int magicPoint, int mpMax, int atk_stat, int def_stat, int level, int posX, int posY, string r, LinkedList<Attack> atk)
     {
         this.name = name;
         this.lifePoint = lifePoint;
@@ -67,7 +64,6 @@ public class Character
         this.posY = posY;
         this.representation = r;
         this.atk = atk;
-        this.magic = magic;
     }
 
     public Character(Character c)
@@ -81,7 +77,6 @@ public class Character
         this.posX = c.getPositionX();
         this.posY = c.getPositionY();
         this.atk = c.getAtk();
-        this.magic = c.getMagic();
         this.representation = c.getRepresentation();
     }
 
@@ -210,45 +205,173 @@ public class Character
     }
 
     public LinkedList<Attack> getAtk() { return atk; }
-    public LinkedList<Magic> getMagic() { return magic; }
 
     public bool isAlive()
     {
-        return lifePoint == 0;
+        return lifePoint != 0;
+    }
+
+    public void fightscreen(Character ennemy)
+    {
+        int ligne = 10;
+
+        Console.Clear();
+
+        for (int i = 0; i < ennemy.lifePoint; i++)
+        {
+            Console.Write("-----");
+        }
+
+        Console.Write("\t\t\t\t" + "[" + ennemy.name + "]" + "  PV:" + ennemy.lifePoint + "/" + ennemy.lifePointMax
+                     + "  Lvl:" + ennemy.level);
+        Console.WriteLine("\n\n\n\n  ");
+        Console.WriteLine("[" + name + "]" + "  Lvl:" + level);
+        Console.WriteLine("Pv:" + lifePoint + "/" + lifePointMax + "  PM:" + magicPoint + "/" + magicPointMax);
+
+        for (int i = 0; i < lifePoint; i++)
+        {
+            Console.Write("-----");
+        }
+        Console.Write("\n");
+        for (int i = 0; i < ligne; i++)
+        {
+            Console.Write("===");
+            if (i == ligne - 1)
+                Console.Write("\n");
+
+        }
+
+        Console.Write("[a] : coup de poing {puissance : 1, cout : 0}\n");
+        Console.Write("[z] : eclat spectral {puissance : 2, cout : 18}\n");
+        Console.Write("[e] : rafale de feuilles {puissance : 3, cout : 30}\n");
+        Console.Write("[r] : cryo-laser {puissance : 3, cout : 38}\n");
+        Console.Write("[t] : bombe aqueuse {puissance : 4, cout : 42}\n");
+        Console.Write("[y] : tornade de sable {puissance : 5, cout : 54}\n");
+        Console.Write("[u] : fulguro-frappe {puissance : 5, cout : 63}\n");
+        Console.Write("[i] : inferno {puissance : 6, cout : 77}\n");
+        Console.Write("[o] : trancher absolu {puissance : 6, cout : 67}\n");
+        Console.WriteLine("[p] : ire draconique {puissance : 7, cout : 80}");
+
+        for (int i = 0; i < ligne; i++)
+        {
+            Console.Write("===");
+            if (i == ligne - 1)
+                Console.Write("\n");
+
+        }
     }
 
     public void fight(Character ennemy)
     {
-        int ligne = 17;
-        lifePoint = 10;
-        Console.Clear();        
-        while (this.isAlive())
+        ConsoleKeyInfo action;
+        Random rnd = new Random();
+
+        while (this.isAlive() && ennemy.isAlive())
         {
-            if (this.isAlive() == false)
+            fightscreen(ennemy);
+
+            action = Console.ReadKey();
+            if (action.Key == ConsoleKey.A)
             {
-                Console.WriteLine(this.name+"est K.O.");
-                break;
+                ennemy.lifePoint -= 1;
+                fightscreen(ennemy);
+                Console.WriteLine("Vous donnez un coup de poing");
+            }
+            else if (action.Key == ConsoleKey.Z && this.magicPoint >= 18)
+            {
+                ennemy.lifePoint -= 2;
+                this.magicPoint -= 18;
+                fightscreen(ennemy);
+                Console.WriteLine("Vous lancez un eclat spectral");
+            }
+            else if (action.Key == ConsoleKey.E && this.magicPoint >= 30)
+            {
+                ennemy.lifePoint -= 3;
+                this.magicPoint -= 30;
+                fightscreen(ennemy);
+                Console.WriteLine("Vous invoquez une rafale de feuilles");
+            }
+            else if (action.Key == ConsoleKey.R && this.magicPoint >= 38)
+            {
+                ennemy.lifePoint -= 3;
+                this.magicPoint -= 38;
+                fightscreen(ennemy);
+                Console.WriteLine("Vous tirez un cryo-laser");
+            }
+            else if (action.Key == ConsoleKey.T && this.magicPoint >= 42)
+            {
+                ennemy.lifePoint -= 4;
+                this.magicPoint -= 42;
+                fightscreen(ennemy);
+                Console.WriteLine("Vous envoyez une bombe aqueuse");
+            }
+            else if (action.Key == ConsoleKey.Y && this.magicPoint >= 54)
+            {
+                ennemy.lifePoint -= 5;
+                this.magicPoint -= 54;
+                fightscreen(ennemy);
+                Console.WriteLine("Vous invoquez une tornade de sable");
+            }
+            else if (action.Key == ConsoleKey.U && this.magicPoint >= 63)
+            {
+                ennemy.lifePoint -= 5;
+                this.magicPoint -= 63;
+                fightscreen(ennemy);
+                Console.WriteLine("Vous lancez une fulguro-frappe");
+            }
+            else if (action.Key == ConsoleKey.I && this.magicPoint >= 77)
+            {
+                ennemy.lifePoint -= 6;
+                this.magicPoint -= 77;
+                fightscreen(ennemy);
+                Console.WriteLine("Vous utilisez inferno");
+            }
+            else if (action.Key == ConsoleKey.O && this.magicPoint >= 67)
+            {
+                ennemy.lifePoint -= 6;
+                this.magicPoint -= 67;
+                fightscreen(ennemy);
+                Console.WriteLine("Vous utilisez le trancher absolu");
+            }
+            else if (action.Key == ConsoleKey.P && this.magicPoint >= 80)
+            {
+                ennemy.lifePoint -= 7;
+                this.magicPoint -= 80;
+                fightscreen(ennemy);
+                Console.WriteLine("Vous dechainez l'ire draconique");
+            }
+            else
+            {
+                Console.WriteLine("Vous n'attaquez pas");
             }
 
-            Console.Clear();
-
-            for(int i = 0; i < ligne; i++)
+            int actionennemy = rnd.Next(1, 4);
+            if (actionennemy == 1)
             {
-                Console.Write("-----"); 
+                this.lifePoint -= 1;
+                Console.WriteLine("L'ennemi vous donne un coup de poing");
             }
-            
-            Console.Write("\t\t\t\t" +"["+ennemy.name+"]"+"  PV:"+ennemy.lifePoint
-                         +"  Lvl:"+ennemy.level);
-            Console.WriteLine("\n\n\n\n  ");
-            Console.WriteLine("["+name+"]"+"  Lvl:"+level);
-            Console.WriteLine("Pv:"+lifePoint+"/"+lifePointMax+"  PM:"+magicPoint+"/"+magicPointMax);
-
-            for (int i = 0; i < ligne; i++)
+            else if (actionennemy == 2)
             {
-                Console.Write("-----");
+                this.lifePoint -= 2;
+                Console.WriteLine("L'ennemi vous donne un coup de pied");
+            }
+            else
+            {
+                this.lifePoint -= 3;
+                Console.WriteLine("L'ennemi vous charge");
             }
             Console.ReadKey();
-            lifePoint--;
+            this.magicPoint += 2;
+        }
+        Console.Clear();
+        if (this.isAlive())
+        {
+            Console.WriteLine(ennemy.name + " est K.O.");
+        }
+        else
+        {
+            Console.WriteLine(this.name + " est K.O.");
         }
     }
 

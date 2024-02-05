@@ -23,7 +23,7 @@ public class HelloWorld
         //Player p = new Player();
         Player p = new Player(Name);
         MapGame map = new MapGame(" + ", 10, 10);
-        Character character = new Character(" P "), ennemy = new Character(" E ");
+        Character character = new Character(Name," P "), ennemy = new Character("Ennemy"," E ");
         string description = "";
         map.addElement(character.getRepresentation(),character.getPositionX() ,character.getPositionY());
         ennemy.setPositionX(0,map); ennemy.setPositionY(1,map);
@@ -73,16 +73,9 @@ public class HelloWorld
                 if(map.getCase((character.getPosition()+1)) == " E " 
                     || map.getCase((character.getPosition() + 1)) == " M ")
                 {
-                    description = "Vous avez rencontrer un ennemi ! Voulez-vous le combattre ?\n" +
-                                  "[y]: Combattre\n[n]:Plus tard\n";
-                    keyInfo = Console.ReadKey();
-                    if (keyInfo.Key == ConsoleKey.Y)
-                    {
-                       Console.Clear();
-                       character.fight(ennemy);//fonctionne pas comme prevu
-                    }
-                    if (keyInfo.Key == ConsoleKey.N) { break; }
-
+                    Console.Clear();
+                    character.fight(ennemy);//fonctionne pas comme prevu
+                    Console.ReadKey();
                 }
                 else { description = "Rapprochez vous d'un ennemi pour combattre";
                     //Console.ReadKey();
@@ -116,19 +109,19 @@ public class HelloWorld
             }
             else if (keyInfo.Key == ConsoleKey.V)
             {
-               description = "Inventaire : cette fonctionnaliter n'est pas encore disponible";
+               description = "Inventaire : cette fonctionnalite n'est pas encore disponible";
             }
             else if (keyInfo.Key == ConsoleKey.C)
             {
-              description = "Map : cette fonctionnaliter n'est pas encore disponible";
+              description = "Map : cette fonctionnalite n'est pas encore disponible";
             }
             else if (keyInfo.Key == ConsoleKey.S)
             {
-              description = "Sauvegarde : cette fonctionnaliter n'est pas encore disponible";
+              description = "Sauvegarde : cette fonctionnalite n'est pas encore disponible";
             }
             else if (keyInfo.Key == ConsoleKey.L)
             {
-                description = "Legende de la map: cette fonctionnaliter n'est pas encore disponible";
+                description = "Legende de la map: cette fonctionnalite n'est pas encore disponible";
             }
             else
             {
