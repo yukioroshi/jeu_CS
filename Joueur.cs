@@ -153,6 +153,36 @@ public class Player
 
     }
 
+    public void displayInventaire()
+    {
+        Console.Clear();
+        Console.WriteLine("Equipe active:");
+        foreach (Character character in active_perso)
+        {
+            Console.WriteLine("\t["+character.getName()+"]:  PV:"+character.getLifeMax()+"  PM:"+character.getMagicPointMax()+
+                "  lvl:"+character.getLevel());
+            Console.WriteLine("");
+        }
+        Console.WriteLine("\nGalerie:");
+        foreach (Character character in stored_perso)
+        {
+            Console.WriteLine("\t[" + character.getName() + "]:  PV:" + character.getLifeMax() + "  PM:" + character.getMagicPointMax() +
+                "  lvl:" + character.getLevel());
+            Console.WriteLine("");
+        }
+        Console.WriteLine("\nObjets:");
+        for (int i=0;i< obj.Count();i++)
+        {
+            Console.WriteLine("\t[" + obj.ElementAt<Objet>(i).getNameObj()+"]");
+            
+            Console.WriteLine("");
+        }
+        Console.WriteLine("\nappuyez sur une touche pour revenir en arriere");
+        Console.ReadKey();
+
+
+    }
+
     /*fonction de sauvegarde*/
     public void save()
     {

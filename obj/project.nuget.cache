@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "/zBl2sXqnohDFU0p4egXO8RQcWHkyKJ9TlPLZ1JLyeOmFV3YVYmTYXT+XAkMG83Bize37odOLpQUp8CiIhKvuQ==",
+  "dgSpecHash": "bCN4b9WZVMQufSW1oxV7XcmBFqV1JSq0MVBSRAvIbgtYJrtGUNQWkJv1RG7RnWAVn9Wlmg+On/RLib6gxfdmPA==",
   "success": true,
   "projectFilePath": "C:\\Users\\mlabady\\Source\\Repos\\jeu_CS\\jeu_CS.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\mlabady\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.26\\microsoft.windowsdesktop.app.ref.6.0.26.nupkg.sha512",
+    "C:\\Users\\mlabady\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.26\\microsoft.netcore.app.ref.6.0.26.nupkg.sha512",
+    "C:\\Users\\mlabady\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.26\\microsoft.aspnetcore.app.ref.6.0.26.nupkg.sha512",
+    "C:\\Users\\mlabady\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.26\\microsoft.netcore.app.host.win-x64.6.0.26.nupkg.sha512"
+  ],
   "logs": []
 }

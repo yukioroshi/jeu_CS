@@ -1,4 +1,4 @@
-
+using System;
 /*classe qui represente les personnages du jeu*/
 public class Character
 {
@@ -18,7 +18,7 @@ public class Character
 
     public Character()
     {
-        this.name = "CharacterName";
+        this.name = "TEST";
         this.lifePoint = 10;
         this.lifePointMax = 10;
         this.magicPoint = 10;
@@ -75,8 +75,8 @@ public class Character
         this.magicPoint = mpMax;
         this.def_stat =
         this.level = level;
-        this.posX = posX;
-        this.posY = posY;
+        this.posX = 0;
+        this.posY = 0;
         this.representation = r;
         this.atk = atk;
         this.atk_stat = statAtk();
@@ -148,6 +148,38 @@ public class Character
         }
     }
 
+    public void setRandomPosition(MapGame m)
+    {
+        Random random=new Random();
+        pos = random.Next(m.size());
+    }
+    public void setRandomPositionX(MapGame m)
+    {
+        Random random = new Random();
+        do
+        {
+            posX = random.Next(m.getNbLigne());
+            if (m.getCase(posX) == m.getField()){
+                break;
+            }
+        }while(m.getCase(posX)!=m.getField());
+
+    }
+    public void setRandomPositionY(MapGame m)
+    {
+
+        Random random = new Random();
+        do
+        {
+            posY = random.Next(m.getNbColonne());
+            if (m.getCase(posX) == m.getField()){
+                break;
+            }
+        } while (m.getCase(posX) != m.getField());
+
+    }
+    
+
     public string toString()
     {
         string res = "";
@@ -192,7 +224,7 @@ public class Character
         }
     }
 
-
+    
     public void move(int newpos, MapGame m)
     {
         if ((newpos < 0) || (newpos > ((m.getNbLigne() * m.getNbColonne())) - 1)
@@ -313,6 +345,7 @@ public class Character
         Console.Write("[i] : inferno {puissance : 6, cout : 77}\n");
         Console.Write("[o] : trancher absolu {puissance : 6, cout : 67}\n");
         Console.WriteLine("[p] : ire draconique {puissance : 7, cout : 80}");
+        Console.Write("[q] : quitter le combat\n");
 
         for (int i = 0; i < ligne; i++)
         {
@@ -401,6 +434,10 @@ public class Character
                 this.magicPoint -= 80;
                 fightscreen(ennemy);
                 Console.WriteLine("Vous dechainez l'ire draconique");
+            }
+            else if (action.Key == ConsoleKey.Q)
+            {
+                return;
             }
             else
             {

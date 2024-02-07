@@ -38,8 +38,9 @@ public class Sauvegarde
     /// </summary>
     /// <param name="map"></param>
     /// <return> int </return>return> 
-    public void saveMap2(Player p,MapGame map)
+    public string saveMap2(Player p,MapGame map)
     {
+        string result = "";
         try
         {
             // Utilisation de FileMode.Create pour créer un nouveau fichier ou écraser s'il existe déjà
@@ -84,11 +85,15 @@ public class Sauvegarde
 
                 }
             }
-            Console.WriteLine("\nLa carte a été sauvegardée avec succès.");
+            // Console.WriteLine("\nLa carte a été sauvegardée avec succès.");
+            result += "La carte a été sauvegardée avec succès.";
+            return result; 
         }
         catch (Exception e)
         {
-            Console.WriteLine("\nUne erreur s'est produite lors de la sauvegarde de la carte : " + e.Message);
+            //Console.WriteLine(result+="\nUne erreur s'est produite lors de la sauvegarde de la carte : " + e.Message);
+            result += "Une erreur s'est produite lors de la sauvegarde de la carte : " + e.Message;
+            return result;  
         }
     }
 

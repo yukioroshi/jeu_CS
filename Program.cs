@@ -40,11 +40,11 @@ public class HelloWorld
 
         pos[0] = 0; pos[1] = 65; pos[2] = 23; pos[3] = 90; pos[4] = 6; pos[5] = 30;
 
-        Coup competence1 = new Coup("Coup de poing",levelComp,puissanceComp,TypePerso.Guerrier);
+        Competence competence1 = new Competence("Coup de poing",levelComp,puissanceComp,TypePerso.Guerrier);
 
         LinkedList<Competence> list_comp = new LinkedList<Competence>();
         list_comp.AddFirst(competence1);
-        Character character1 = new Character(nameCharacter[0], lifepoint[0], lpmax, magicPoint[0], mpmax, def_stat, levelCharacter[0], pos[0], " P ", list_comp);
+        Character chara = new Character(nameCharacter[0], lifepoint[0], lpmax, magicPoint[0], mpmax, def_stat, levelCharacter[0], pos[3], " P ", list_comp);
             //(nameCharacter[0], lifepoint[0], lpmax, magicPoint[0], mpmax, def_stat, levelCharacter[0],pos[0]+" P ",list_comp);
        
         LinkedList<Character> st = new LinkedList<Character>();
@@ -52,22 +52,25 @@ public class HelloWorld
 
         do
         {
-            Console.Write("Entrez un nom d'utilisatuer : ");
+            Console.Write("Entrez un nom d'utilisateur : ");
             nameplayer = Console.ReadLine();
         } while (nameplayer == "");
 
 
-        Character character = new Character("Neos", " P "), ennemy = new Character("Ennemy", " E ");
+        Character  ennemy = new Character("Ennemy", " E ");
         Player p = new Player(nameplayer);
         Sauvegarde savePlayer = new Sauvegarde(p.getPlayerName());
         MapGame map = new MapGame(" + ", 10, 10);
 
         string description = "";
-        map.addElement(character.getRepresentation(), character.getPositionX(), character.getPositionY());
-        ennemy.setPositionX(0, map); ennemy.setPositionY(1, map);
+        map.addElement(chara.getRepresentation(), chara.getPositionX(), chara.getPositionY());
+        ennemy.setRandomPositionX(map); 
+        ennemy.setRandomPositionY(map); 
         map.addElement(ennemy.getRepresentation(), ennemy.getPositionX(), ennemy.getPositionY());
+        
+        Console.Clear();
         p.displayInfo();
-        map.displayMap();
+        map.displayMapWithColor();
         map.displayDescription();
         map.indicationManip();
         //keyInfo = Console.ReadKey();
@@ -92,27 +95,29 @@ public class HelloWorld
             }
             else if (keyInfo.Key == ConsoleKey.LeftArrow)
             {
-                character.move(character.getPosition() - 1 /*+ map.getNbColonne()*/ , map);
+                chara.move(chara.getPosition() - 1 /*+ map.getNbColonne()*/ , map);
             }
             else if (keyInfo.Key == ConsoleKey.DownArrow)
             {
-                character.move(character.getPosition() + map.getNbColonne(), map);
+                chara.move(chara.getPosition() + map.getNbColonne(), map);
             }
             else if (keyInfo.Key == ConsoleKey.UpArrow)
             {
-                character.move(character.getPosition() - map.getNbColonne(), map);
+                chara.move(chara.getPosition() - map.getNbColonne(), map);
             }
             else if (keyInfo.Key == ConsoleKey.RightArrow)
             {
-                character.move(character.getPosition() + 1 /*map.getNbColonne()*/, map);
+                chara.move(chara.getPosition() + 1 /*map.getNbColonne()*/, map);
             }
             else if (keyInfo.Key == ConsoleKey.F)
             {
-                if (map.getCase((character.getPosition() + 1)) == " E "
-                    || map.getCase((character.getPosition() + 1)) == " M ")
+                if (map.getCase((chara.getPosition() + 1)) == " E "
+                    || map.getCase((chara.getPosition() + 1)) == " M "
+                    || map.getCase((chara.getPosition() - 1)) == " E "
+                    || map.getCase((chara.getPosition() - 1)) == " M ")
                 {
                     Console.Clear();
-                    character.fight(ennemy);//fonctionne pas comme prevu
+                    chara.fight(ennemy);//fonctionne pas comme prevu
                     Console.ReadKey();
                 }
                 else
@@ -123,7 +128,7 @@ public class HelloWorld
             }
             else if (keyInfo.Key == ConsoleKey.I)
             {
-                if (map.getCase((character.getPosition() + 1)) == " N ")
+                if (map.getCase((chara.getPosition() + 1)) == " N ")
                 {
                     description = "dialogue avec un pnj";
                     //Console.ReadKey();
@@ -136,7 +141,7 @@ public class HelloWorld
             }
             else if (keyInfo.Key == ConsoleKey.O)
             {
-                if (map.getCase((character.getPosition() + 1)) == " C ")
+                if (map.getCase((chara.getPosition() + 1)) == " C ")
                 {
                     description = "Vous avez trouver un coffre";
                     //Console.ReadKey();
@@ -149,7 +154,8 @@ public class HelloWorld
             }
             else if (keyInfo.Key == ConsoleKey.V)
             {
-                description = "Inventaire : cette fonctionnalite n'est pas encore disponible";
+                // description = "Inventaire : cette fonctionnalite n'est pas encore disponible";
+                p.displayInventaire();
             }
             else if (keyInfo.Key == ConsoleKey.C)
             {
@@ -157,7 +163,8 @@ public class HelloWorld
             }
             else if (keyInfo.Key == ConsoleKey.S)
             {
-                description = "Sauvegarde : cette fonctionnalite n'est pas encore disponible";
+                // description = "Sauvegarde : cette fonctionnalite n'est pas encore disponible";
+                description=savePlayer.saveMap2(p, map);
             }
             else if (keyInfo.Key == ConsoleKey.L)
             {
@@ -170,12 +177,11 @@ public class HelloWorld
 
             Console.Clear();
             p.displayInfo();
-            map.displayMap();
+            map.displayMapWithColor();
             map.displayDescription(description);
             map.indicationManip();
             //keyInfo = Console.ReadKey();
         }
-        Console.WriteLine(p.toString());
-        savePlayer.saveMap2(p,map) ;
+      
     }
 }

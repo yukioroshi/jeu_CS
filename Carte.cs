@@ -71,7 +71,8 @@ public class MapGame
         return res;
     }
 
-    /*affiche la map dans le terminale*/
+
+
     public void displayMap()
     {
         int largeur = 30;
@@ -88,6 +89,54 @@ public class MapGame
             for (int j = 0; j < colonne; j++)
             {
                 Console.Write("\t" + mapAscii[i * colonne + j]);
+            }    
+            Console.Write("\n\n");
+        }
+
+    }
+
+    /*affiche la map dans le terminale, avec les couleurs*/
+    public void displayMapWithColor()
+    {
+        int largeur = 30;
+        for (int i = 0; i < largeur; i++)
+        {
+            Console.Write("___");
+            if (i == largeur - 1)
+                Console.Write("\n");
+
+        }
+
+        for (int i = 0; i < ligne; i++)
+        {
+            for (int j = 0; j < colonne; j++)
+            {
+                if (mapAscii[i*colonne + j] == " P ")
+                {
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.Write("\t" + mapAscii[i * colonne + j]);
+                    Console.ForegroundColor = ConsoleColor.White;
+
+                }
+                else if(mapAscii[i * colonne + j] == " E ")
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.Write("\t" + mapAscii[i * colonne + j]);
+                    Console.ForegroundColor = ConsoleColor.White;
+
+                }
+                else if (mapAscii[i * colonne + j] == " C ")
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.Write("\t" + mapAscii[i * colonne + j]);
+                    Console.ForegroundColor = ConsoleColor.White;
+                    //Console.ResetColor();
+
+                }
+                else
+                {
+                    Console.Write("\t" + mapAscii[i * colonne + j]);
+                }
             }
             Console.Write("\n\n");
         }

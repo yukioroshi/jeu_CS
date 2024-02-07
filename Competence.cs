@@ -1,5 +1,5 @@
 /*classe pour les attaques*/
-public abstract class Competence
+public class Competence
 {
     private string name_comp;
     private int level_comp;
@@ -36,7 +36,6 @@ public abstract class Competence
     }
     public void setTypePerso(int i)
     {
-        TypePerso t = TypePerso.Android;
         switch (i)
         {
             case 0: type_perso_comp=TypePerso.Guerrier; break;
@@ -59,7 +58,7 @@ public abstract class Competence
         return res;
     }
     public int degat() { return 0; }
-    public abstract void effectCompetence();
+    //public abstract void effectCompetence();
     public void LvlRequired(Character c)
     {
         if (c.getLevel() < level_comp)

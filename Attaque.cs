@@ -1,4 +1,6 @@
-﻿public class Coup : Competence
+﻿
+
+/*public class Coup : Competence
 {
     public Coup() :base() { }
 
@@ -10,3 +12,6 @@
     }
 
 }
+
+ 
+ */
