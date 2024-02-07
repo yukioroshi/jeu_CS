@@ -59,6 +59,24 @@ public class Player
         return id_name;
     }
 
+    public Character getCurrentCharacter()
+    {
+        return current;
+    }
+    public LinkedList<Character> getActiveCharacter()
+    {
+        return active_perso;
+    }
+    public LinkedList<Character> getStoredPerso()
+    {
+        return stored_perso;
+    }
+    public LinkedList<Objet> getCharaObjet()
+    {
+        return obj;
+    }
+
+
     /*renvoi le nombre de personnage actif posseder par le joueur*/
     public int getNbActiveCharacter()
     {
@@ -84,6 +102,25 @@ public class Player
         return obj.Count();
     }
 
+    public string toString()
+    {
+        string res = "";
+        res += id_name + "\n" + current.toString() + "\n";
+        foreach (Character p in active_perso)
+        {
+            res += p.toString() + "\n";
+        }
+        foreach (Character p in stored_perso)
+        {
+            res += p.toString() + "\n";
+        }
+        foreach (Objet o in obj)
+        {
+            res += o.toString() + "\n";
+        }
+        return res;
+    }
+
     /*ajoute un perso a la liste des personnage du joueur*/
     public void addCharacter(Character c)
     {
@@ -105,10 +142,6 @@ public class Player
 
     }
 
-    public Character getCurrentCharacter()
-    {
-        return current;
-    }
     public void displayInfo()
     {
         Console.WriteLine("id: " + id_name);

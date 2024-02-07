@@ -59,6 +59,18 @@ public class MapGame
         return mapAscii;
     }
 
+
+    public string toString()
+    {
+        string res = "";
+        res += ligne + "\n" + colonne + "\n";
+        for (int i = 0;i < size(); i++)
+        {
+            res += mapAscii[i];
+        }
+        return res;
+    }
+
     /*affiche la map dans le terminale*/
     public void displayMap()
     {

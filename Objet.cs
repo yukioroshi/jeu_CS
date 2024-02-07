@@ -14,5 +14,6 @@ public abstract class Objet
     }
 
     public string getNameObj() { return name; }
-    public void effect() { }
+    public abstract void effect();
+    public string toString() { return "objet:"+name; }
 }
