@@ -22,7 +22,9 @@ public class HelloWorld
         string nameplayer;
         string[] nameCharacter=new string[6];
         int lpmax = 100, mpmax=80, def_stat=10;
-        int[] lifepoint= new int[6], magicPoint=new int[6], level=new int[6];   
+        int[] lifepoint= new int[6], magicPoint=new int[6], levelCharacter=new int[6];
+        int[] pos = new int[6];
+        int levelComp = 18, puissanceComp=50;
 
         nameCharacter[0] = "Neos";  nameCharacter[1] = "Burstinatrix";  nameCharacter[2] = "Airman";    
         nameCharacter[3] = "Annapelera";    nameCharacter[4] = "Sakuretsu"; nameCharacter[5] = "Clayman";
@@ -33,13 +35,18 @@ public class HelloWorld
         magicPoint[0] = 23; magicPoint[1] = 13; magicPoint[2] = 45;
         magicPoint[3] = 10; magicPoint[4] = 39; magicPoint[5] =5;
 
-        level[0] = 10; level[1] = 20;  level[2] = 20;
-        level[3] = 30; level[4] = 40;  level[5] = 50;
+        levelCharacter[0] = 10; levelCharacter[1] = 20; levelCharacter[2] = 20;
+        levelCharacter[3] = 30; levelCharacter[4] = 40; levelCharacter[5] = 50;
 
-        Competence competence = new Competence();
-        Character character1 = new Character(nameCharacter[0], lifepoint[0], lpmax, magicPoint[0], mpmax, def_stat, level[0]," P ",);
+        pos[0] = 0; pos[1] = 65; pos[2] = 23; pos[3] = 90; pos[4] = 6; pos[5] = 30;
+
+        Coup competence1 = new Coup("Coup de poing",levelComp,puissanceComp,TypePerso.Guerrier);
+
+        LinkedList<Competence> list_comp = new LinkedList<Competence>();
+        list_comp.AddFirst(competence1);
+        Character character1 = new Character(nameCharacter[0], lifepoint[0], lpmax, magicPoint[0], mpmax, def_stat, levelCharacter[0], pos[0], " P ", list_comp);
+            //(nameCharacter[0], lifepoint[0], lpmax, magicPoint[0], mpmax, def_stat, levelCharacter[0],pos[0]+" P ",list_comp);
        
-        LinkedList<Competence> competences = new LinkedList<Competence>();
         LinkedList<Character> st = new LinkedList<Character>();
 
 
@@ -51,7 +58,7 @@ public class HelloWorld
 
 
         Character character = new Character("Neos", " P "), ennemy = new Character("Ennemy", " E ");
-        Player p = new Player(Name);
+        Player p = new Player(nameplayer);
         Sauvegarde savePlayer = new Sauvegarde(p.getPlayerName());
         MapGame map = new MapGame(" + ", 10, 10);
 
