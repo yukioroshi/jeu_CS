@@ -219,10 +219,36 @@ public class Player
         current.setPosition(c.getPosition(), m);
     }
 
-    public void fight(Character ennemy)
+    public string fight(Character ennemy)
     {
-        if(getCurrentCharacter().isAlive()) {
+        if((getNbActiveCharacter() > 0))
+        {
+            int i = 0;
+            Character tmp;
+            while (getNbActiveCharacter() > 0)
+            {
+                if (i < active_perso.Count())
+                {
+                   tmp = active_perso.ElementAt(i);
+                   if (tmp.isAlive() && ennemy.isAlive())
+                   {
+                       tmp.fight(ennemy);
+                   }
+                    if (!ennemy.isAlive())
+                    {
+                        break;
+                    }
+                   else
+                   {
+                       i++;
+                   }
+                }
+                
+            }
+            return "";
         }
+        else { return "Vos personnages ne sont pas en etat de combattre !"; }
+
     }
 
     /*fonction de sauvegarde*/

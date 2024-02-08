@@ -69,7 +69,7 @@ public class HelloWorld
         } while (nameplayer == "");
 
 
-        Character  ennemy = new Character("Ennemy", " E ");
+        Character  ennemy = new Character("Barbaros", " E ");
         Player p = new Player(nameplayer,st,list_obj);
         Sauvegarde savePlayer = new Sauvegarde(p.getPlayerName());
         MapGame map = new MapGame(" + ", 10, 10);
@@ -129,7 +129,8 @@ public class HelloWorld
                     || map.getCase((p.getCurrentCharacter().getPosition() - 1)) == " M ")
                 {
                     Console.Clear();
-                    p.getCurrentCharacter().fight(ennemy);//fonctionne pas comme prevu
+                    p.fight(ennemy);
+                    //p.getCurrentCharacter().fight(ennemy);//fonctionne pas comme prevu
                     Console.ReadKey();
                 }
                 else
