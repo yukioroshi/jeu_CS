@@ -147,6 +147,16 @@ public class Character
             posY = y;
         }
     }
+    
+    public void setPosition(int p,MapGame m)
+    {
+        if (p < 0 || p > m.size())
+        {
+            Console.WriteLine("Erreur position p dans setPosition");
+            Environment.Exit(1);
+        }
+        else { pos = p; }
+    } 
 
     public void setRandomPosition(MapGame m)
     {

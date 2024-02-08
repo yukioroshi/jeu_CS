@@ -75,7 +75,7 @@ public class HelloWorld
         MapGame map = new MapGame(" + ", 10, 10);
 
         string description = "";
-        map.addElement(chara1.getRepresentation(), chara1.getPositionX(), chara1.getPositionY());
+        map.addElement(p.getCurrentCharacter().getRepresentation(), p.getCurrentCharacter().getPositionX(), p.getCurrentCharacter().getPositionY());
         ennemy.setRandomPositionX(map); 
         ennemy.setRandomPositionY(map); 
         map.addElement(ennemy.getRepresentation(), ennemy.getPositionX(), ennemy.getPositionY());
@@ -180,7 +180,7 @@ public class HelloWorld
             }
             else if (keyInfo.Key == ConsoleKey.P)
             {
-                p.selectPerso();
+                p.selectPerso(p.getCurrentCharacter(),map);
             }
             else if (keyInfo.Key == ConsoleKey.L)
             {

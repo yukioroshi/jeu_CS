@@ -187,7 +187,7 @@ public class Player
 
     }
 
-    public void selectPerso()
+    public void selectPerso(Character c,MapGame m)
     {
         ConsoleKeyInfo key;
         /* do
@@ -207,10 +207,21 @@ public class Player
         else if (key.Key == ConsoleKey.B)
         {
             current = active_perso.ElementAt(1);
+
+
         }
         else if (key.Key == ConsoleKey.C)
         {
             current = active_perso.ElementAt(2);
+        }
+        current.setPositionX(c.getPositionX(), m);
+        current.setPositionY(c.getPositionY(), m);
+        current.setPosition(c.getPosition(), m);
+    }
+
+    public void fight(Character ennemy)
+    {
+        if(getCurrentCharacter().isAlive()) {
         }
     }
 
