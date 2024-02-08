@@ -21,19 +21,13 @@ public class HelloWorld
 
         string nameplayer;
         string[] nameCharacter=new string[6];
-        int lpmax = 100, mpmax=80, def_stat=10;
-        int[] lifepoint= new int[6], magicPoint=new int[6], levelCharacter=new int[6];
+        int lifepoint = 100, lpmax = 100, magicPoint = 100, mpmax=100, def_stat=10;
+        int[] levelCharacter=new int[6];
         int[] pos = new int[6];
         int levelComp = 18, puissanceComp=50;
 
         nameCharacter[0] = "Neos";  nameCharacter[1] = "Burstinatrix";  nameCharacter[2] = "Airman";    
         nameCharacter[3] = "Annapelera";    nameCharacter[4] = "Sakuretsu"; nameCharacter[5] = "Clayman";
-
-        lifepoint[0] = 40;  lifepoint[1] = 34;  lifepoint[2] = 45;
-        lifepoint[3] = 76;  lifepoint[4] = 54;  lifepoint[5] = 23;
-
-        magicPoint[0] = 23; magicPoint[1] = 13; magicPoint[2] = 45;
-        magicPoint[3] = 10; magicPoint[4] = 39; magicPoint[5] =5;
 
         levelCharacter[0] = 10; levelCharacter[1] = 20; levelCharacter[2] = 20;
         levelCharacter[3] = 30; levelCharacter[4] = 40; levelCharacter[5] = 50;
@@ -44,7 +38,7 @@ public class HelloWorld
 
         LinkedList<Competence> list_comp = new LinkedList<Competence>();
         list_comp.AddFirst(competence1);
-        Character chara = new Character(nameCharacter[0], lifepoint[0], lpmax, magicPoint[0], mpmax, def_stat, levelCharacter[0], pos[3], " P ", list_comp);
+        Character chara = new Character(nameCharacter[0], lifepoint, lpmax, magicPoint, mpmax, def_stat, levelCharacter[0], pos[3], " P ", list_comp);
             //(nameCharacter[0], lifepoint[0], lpmax, magicPoint[0], mpmax, def_stat, levelCharacter[0],pos[0]+" P ",list_comp);
        
         LinkedList<Character> st = new LinkedList<Character>();

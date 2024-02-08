@@ -56,7 +56,7 @@ public class Character
         this.lifePoint = lifePoint;
         this.lifePointMax = lpMax;
         this.magicPoint = magicPoint;
-        this.magicPoint = mpMax;
+        this.magicPointMax = mpMax;
         this.def_stat =
         this.level = level;
         this.posX = posX;
@@ -72,7 +72,7 @@ public class Character
         this.lifePoint = lifePoint;
         this.lifePointMax = lpMax;
         this.magicPoint = magicPoint;
-        this.magicPoint = mpMax;
+        this.magicPointMax = mpMax;
         this.def_stat =
         this.level = level;
         this.posX = 0;
@@ -311,22 +311,21 @@ public class Character
 
         Console.Clear();
 
+        Console.WriteLine("\n[" + ennemy.name + "]" + "  PV:" + ennemy.lifePoint + "/" + ennemy.lifePointMax + "  Lvl:" + ennemy.level);
         for (int i = 0; i < ennemy.lifePoint; i++)
         {
             Console.Write("-----");
         }
 
-        Console.Write("\t\t\t\t" + "[" + ennemy.name + "]" + "  PV:" + ennemy.lifePoint + "/" + ennemy.lifePointMax
-                     + "  Lvl:" + ennemy.level);
         Console.WriteLine("\n\n\n\n  ");
         Console.WriteLine("[" + name + "]" + "  Lvl:" + level);
         Console.WriteLine("Pv:" + lifePoint + "/" + lifePointMax + "  PM:" + magicPoint + "/" + magicPointMax);
 
         for (int i = 0; i < lifePoint; i++)
         {
-            Console.Write("-----");
+            Console.Write("--");
         }
-        Console.Write("\n");
+        Console.Write("\n\n");
         for (int i = 0; i < ligne; i++)
         {
             Console.Write("===");
