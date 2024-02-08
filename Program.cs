@@ -53,9 +53,13 @@ public class HelloWorld
         st.AddFirst(chara4);
         st.AddFirst(chara5);
         st.AddFirst(chara6);
-        Objet obj = new Objet("Epee Divine");
+        Objet obj1 = new Objet("Epee Divine");
+        Objet obj2 = new Objet("Dague Empoisonner");
+        Objet obj3 = new Objet("fiole de Sante");
         LinkedList<Objet> list_obj = new LinkedList<Objet>();
-        list_obj.AddFirst(obj);
+        list_obj.AddFirst(obj1);
+        list_obj.AddFirst(obj2);
+        list_obj.AddFirst(obj3);
 
 
         do
@@ -103,29 +107,29 @@ public class HelloWorld
             }
             else if (keyInfo.Key == ConsoleKey.LeftArrow)
             {
-                chara1.move(chara1.getPosition() - 1 /*+ map.getNbColonne()*/ , map);
+                p.getCurrentCharacter().move(p.getCurrentCharacter().getPosition() - 1 /*+ map.getNbColonne()*/ , map);
             }
             else if (keyInfo.Key == ConsoleKey.DownArrow)
             {
-                chara1.move(chara1.getPosition() + map.getNbColonne(), map);
+                p.getCurrentCharacter().move(p.getCurrentCharacter().getPosition() + map.getNbColonne(), map);
             }
             else if (keyInfo.Key == ConsoleKey.UpArrow)
             {
-                chara1.move(chara1.getPosition() - map.getNbColonne(), map);
+                p.getCurrentCharacter().move(p.getCurrentCharacter().getPosition() - map.getNbColonne(), map);
             }
             else if (keyInfo.Key == ConsoleKey.RightArrow)
             {
-                chara1.move(chara1.getPosition() + 1 /*map.getNbColonne()*/, map);
+                p.getCurrentCharacter().move(p.getCurrentCharacter().getPosition() + 1 /*map.getNbColonne()*/, map);
             }
             else if (keyInfo.Key == ConsoleKey.F)
             {
-                if (map.getCase((chara1.getPosition() + 1)) == " E "
-                    || map.getCase((chara1.getPosition() + 1)) == " M "
-                    || map.getCase((chara1.getPosition() - 1)) == " E "
-                    || map.getCase((chara1.getPosition() - 1)) == " M ")
+                if (map.getCase((p.getCurrentCharacter().getPosition() + 1)) == " E "
+                    || map.getCase((p.getCurrentCharacter().getPosition() + 1)) == " M "
+                    || map.getCase((p.getCurrentCharacter().getPosition() - 1)) == " E "
+                    || map.getCase((p.getCurrentCharacter().getPosition() - 1)) == " M ")
                 {
                     Console.Clear();
-                    chara1.fight(ennemy);//fonctionne pas comme prevu
+                    p.getCurrentCharacter().fight(ennemy);//fonctionne pas comme prevu
                     Console.ReadKey();
                 }
                 else
@@ -136,7 +140,7 @@ public class HelloWorld
             }
             else if (keyInfo.Key == ConsoleKey.I)
             {
-                if (map.getCase((chara1.getPosition() + 1)) == " N ")
+                if (map.getCase((p.getCurrentCharacter().getPosition() + 1)) == " N ")
                 {
                     description = "dialogue avec un pnj";
                     //Console.ReadKey();
@@ -149,7 +153,7 @@ public class HelloWorld
             }
             else if (keyInfo.Key == ConsoleKey.O)
             {
-                if (map.getCase((chara1.getPosition() + 1)) == " C ")
+                if (map.getCase((p.getCurrentCharacter().getPosition() + 1)) == " C ")
                 {
                     description = "Vous avez trouver un coffre";
                     //Console.ReadKey();

@@ -165,14 +165,14 @@ public class Player
         foreach (Character character in active_perso)
         {
             Console.WriteLine("\t["+character.getName()+"]:  PV:"+character.getLifeMax()+"  PM:"+character.getMagicPointMax()+
-                "  lvl:"+character.getLevel());
+                "  lvl:"+character.getLevel()+"  Atk:"+character.getAtkStat());
             Console.WriteLine("");
         }
         Console.WriteLine("\nGalerie:");
         foreach (Character character in stored_perso)
         {
             Console.WriteLine("\t[" + character.getName() + "]:  PV:" + character.getLifeMax() + "  PM:" + character.getMagicPointMax() +
-                "  lvl:" + character.getLevel());
+                "  lvl:" + character.getLevel() + "  Atk:" + character.getAtkStat());
             Console.WriteLine("");
         }
         Console.WriteLine("\nObjets:");
