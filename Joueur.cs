@@ -197,7 +197,9 @@ public class Player
              Console.WriteLine("[a] : " + active_perso.ElementAt(0).getName() + "\n");
              Console.WriteLine("[b] : " + active_perso.ElementAt(1).getName() + "\n");
              Console.WriteLine("[c] : " + active_perso.ElementAt(2).getName() + "\n");
-             key = Console.ReadKey();
+             Console.WriteLine("[g] : Choisir un personnage dans la galerie\n");
+
+        key = Console.ReadKey();
          //} while (key.Key != ConsoleKey.A || key.Key != ConsoleKey.B || key.Key != ConsoleKey.C);*/
 
         if (key.Key == ConsoleKey.A)
@@ -214,11 +216,28 @@ public class Player
         {
             current = active_perso.ElementAt(2);
         }
+        else if (key.Key == ConsoleKey.G)
+        {
+            Console.WriteLine("pas encore disponible\n");
+            //changeEquipe();
+        }
         current.setPositionX(c.getPositionX(), m);
         current.setPositionY(c.getPositionY(), m);
         current.setPosition(c.getPosition(), m);
     }
 
+    public void changeEquipe()
+    {
+        Console.Clear();
+        LinkedList<Character> newTeam = new LinkedList<Character>();
+        Console.WriteLine("Composez votre equipe\n");
+        foreach (Character character in stored_perso)
+        {
+            Console.WriteLine("\t[" + character.getName() + "]:  PV:" + character.getLifeMax() + "  PM:" + character.getMagicPointMax() +
+                "  lvl:" + character.getLevel() + "  Atk:" + character.getAtkStat());
+            Console.WriteLine("");
+        }
+    }
     public string fight(Character ennemy)
     {
         if((getNbActiveCharacter() > 0))
