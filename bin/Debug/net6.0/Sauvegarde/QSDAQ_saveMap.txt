@@ -1,0 +1,275 @@
+QSDAQ
+Annapelera
+Lifepoint:100
+lifepoitmax:100
+mp:100
+mpmax:100
+atkstat:51
+defsata:30
+lvl:30
+px:0
+py:0
+pos:91
+rep: P 
+atk:atk:Coup de poing
+18
+puissance
+typeInt0
+
+Sakuretsu
+Lifepoint:100
+lifepoitmax:100
+mp:100
+mpmax:100
+atkstat:51
+defsata:40
+lvl:40
+px:0
+py:0
+pos:0
+rep: P 
+atk:atk:Coup de poing
+18
+puissance
+typeInt0
+
+Clayman
+Lifepoint:100
+lifepoitmax:100
+mp:100
+mpmax:100
+atkstat:51
+defsata:50
+lvl:50
+px:0
+py:0
+pos:0
+rep: P 
+atk:atk:Coup de poing
+18
+puissance
+typeInt0
+
+Clayman
+Lifepoint:100
+lifepoitmax:100
+mp:100
+mpmax:100
+atkstat:51
+defsata:50
+lvl:50
+px:0
+py:0
+pos:0
+rep: P 
+atk:atk:Coup de poing
+18
+puissance
+typeInt0
+
+Sakuretsu
+Lifepoint:100
+lifepoitmax:100
+mp:100
+mpmax:100
+atkstat:51
+defsata:40
+lvl:40
+px:0
+py:0
+pos:0
+rep: P 
+atk:atk:Coup de poing
+18
+puissance
+typeInt0
+
+Annapelera
+Lifepoint:100
+lifepoitmax:100
+mp:100
+mpmax:100
+atkstat:51
+defsata:30
+lvl:30
+px:0
+py:0
+pos:91
+rep: P 
+atk:atk:Coup de poing
+18
+puissance
+typeInt0
+
+Airman
+Lifepoint:100
+lifepoitmax:100
+mp:100
+mpmax:100
+atkstat:51
+defsata:20
+lvl:20
+px:0
+py:0
+pos:0
+rep: P 
+atk:atk:Coup de poing
+18
+puissance
+typeInt0
+
+Burstinatrix
+Lifepoint:100
+lifepoitmax:100
+mp:100
+mpmax:100
+atkstat:51
+defsata:20
+lvl:20
+px:0
+py:0
+pos:0
+rep: P 
+atk:atk:Coup de poing
+18
+puissance
+typeInt0
+
+Neos
+Lifepoint:100
+lifepoitmax:100
+mp:100
+mpmax:100
+atkstat:51
+defsata:10
+lvl:10
+px:0
+py:0
+pos:0
+rep: P 
+atk:atk:Coup de poing
+18
+puissance
+typeInt0
+
+objet:Epee Divine
+objet:Dague Empoisonner
+objet:fiole de Sante
+objet:Epee Divine
+objet:Dague Empoisonner
+objet:fiole de Sante
+objet:Epee Divine
+objet:Dague Empoisonner
+objet:fiole de Sante
+objet:Epee Divine
+objet:Dague Empoisonner
+objet:fiole de Sante
+objet:Epee Divine
+objet:Dague Empoisonner
+objet:fiole de Sante
+objet:fiole de Sante
+objet:Dague Empoisonner
+objet:Epee Divine
+
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ E 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ C 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ C 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ N 
+ P 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+ + 
+10
+10

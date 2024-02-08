@@ -133,6 +133,14 @@ public class MapGame
                     //Console.ResetColor();
 
                 }
+                else if (mapAscii[i * colonne + j] == " N ")
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.Write("\t" + mapAscii[i * colonne + j]);
+                    Console.ForegroundColor = ConsoleColor.White;
+                    //Console.ResetColor();
+
+                }
                 else
                 {
                     Console.Write("\t" + mapAscii[i * colonne + j]);

@@ -147,6 +147,10 @@ public class Player
 
     }
 
+    public void addObjet(Objet objet)
+    {
+        obj.AddFirst(objet);
+    }
     public void displayInfo(Character c)
     {
         Console.WriteLine("id: " + id_name);

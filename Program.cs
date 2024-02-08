@@ -53,7 +53,11 @@ public class HelloWorld
         list_obj.AddFirst(obj2);
         list_obj.AddFirst(obj3);
 
-
+        Npc npc = new Npc("Gottom (fermier)");
+        Coffre coffre = new Coffre();
+        coffre.addObjet(obj1);
+        coffre.addObjet(obj2);
+        coffre.addObjet(obj3);
 
         do
         {
@@ -66,6 +70,7 @@ public class HelloWorld
         Player p = new Player(nameplayer,st,list_obj);
         Sauvegarde savePlayer = new Sauvegarde(p.getPlayerName());
         MapGame map = new MapGame(" + ", 10, 10);
+       
 
         string description = "";
         map.addElement(p.getCurrentCharacter().getRepresentation(), p.getCurrentCharacter().getPositionX(), p.getCurrentCharacter().getPositionY());
@@ -73,6 +78,9 @@ public class HelloWorld
         ennemy.setRandomPositionY(map); 
         map.addElement(ennemy.getRepresentation(), ennemy.getPositionX(), ennemy.getPositionY());
         
+        npc.setRandomPosition(map);
+        coffre.setRandomPosition(map);
+
         Console.Clear();
         p.displayInfo(p.getCurrentCharacter());
         map.displayMapWithColor();
@@ -97,22 +105,27 @@ public class HelloWorld
             }
             else if (keyInfo.Key == ConsoleKey.LeftArrow)
             {
+                description = "";
                 p.getCurrentCharacter().move(p.getCurrentCharacter().getPosition() - 1 /*+ map.getNbColonne()*/ , map);
             }
             else if (keyInfo.Key == ConsoleKey.DownArrow)
             {
+                description = "";
                 p.getCurrentCharacter().move(p.getCurrentCharacter().getPosition() + map.getNbColonne(), map);
             }
             else if (keyInfo.Key == ConsoleKey.UpArrow)
             {
+                description = "";
                 p.getCurrentCharacter().move(p.getCurrentCharacter().getPosition() - map.getNbColonne(), map);
             }
             else if (keyInfo.Key == ConsoleKey.RightArrow)
             {
+                description = "";
                 p.getCurrentCharacter().move(p.getCurrentCharacter().getPosition() + 1 /*map.getNbColonne()*/, map);
             }
             else if (keyInfo.Key == ConsoleKey.F)
             {
+                description = "";
                 if (map.getCase((p.getCurrentCharacter().getPosition() + 1)) == " E "
                     || map.getCase((p.getCurrentCharacter().getPosition() + 1)) == " M "
                     || map.getCase((p.getCurrentCharacter().getPosition() - 1)) == " E "
@@ -131,9 +144,11 @@ public class HelloWorld
             }
             else if (keyInfo.Key == ConsoleKey.I)
             {
-                if (map.getCase((p.getCurrentCharacter().getPosition() + 1)) == " N ")
+                description = "";
+                if (map.getCase((p.getCurrentCharacter().getPosition() + 1)) == " N " 
+                    || map.getCase((p.getCurrentCharacter().getPosition() - 1)) == " N ")
                 {
-                    description = "dialogue avec un pnj";
+                    description = "Conversation avec"+ npc.getNameNpc();
                     //Console.ReadKey();
                 }
                 else
@@ -144,10 +159,22 @@ public class HelloWorld
             }
             else if (keyInfo.Key == ConsoleKey.O)
             {
-                if (map.getCase((p.getCurrentCharacter().getPosition() + 1)) == " C ")
+                description = "";
+                if (map.getCase((p.getCurrentCharacter().getPosition() + 1)) == " C "
+                    || map.getCase((p.getCurrentCharacter().getPosition() - 1)) == " C ")
                 {
-                    description = "Vous avez trouver un coffre";
-                    //Console.ReadKey();
+                    if(coffre.getObjCoffre().Count() == 0) {
+                        description = "Ce coffre est vide\n";
+                    }
+                    else
+                    {
+                        description = "Vous avez obtenu :\n";
+                        foreach(Objet o in coffre.getObjCoffre())
+                        {
+                            description += "   " + o.getNameObj() + "\n";
+                            p.addObjet(o);
+                        }
+                    }
                 }
                 else
                 {
@@ -166,11 +193,12 @@ public class HelloWorld
             }
             else if (keyInfo.Key == ConsoleKey.S)
             {
-                // description = "Sauvegarde : cette fonctionnalite n'est pas encore disponible";
-                description=savePlayer.saveMap2(p, map);
+                description = "";
+                description =savePlayer.saveMap2(p, map);
             }
             else if (keyInfo.Key == ConsoleKey.P)
             {
+                description = "";
                 p.selectPerso(p.getCurrentCharacter(),map);
             }
             else if (keyInfo.Key == ConsoleKey.L)

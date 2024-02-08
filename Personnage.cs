@@ -161,7 +161,14 @@ public class Character
     public void setRandomPosition(MapGame m)
     {
         Random random=new Random();
-        pos = random.Next(m.size());
+        do
+        {
+            pos = random.Next(m.size());
+            if (m.getCase(pos) == m.getField())
+            {
+                break;
+            }
+        } while (m.getCase(pos) != m.getField());
     }
     public void setRandomPositionX(MapGame m)
     {
