@@ -194,17 +194,15 @@ public class Player
     public void selectPerso(Character c,MapGame m)
     {
         ConsoleKeyInfo key;
-        /* do
-         {*/
-             Console.Clear();
-             Console.WriteLine("Selectionnez un personnage\n");
-             Console.WriteLine("[a] : " + active_perso.ElementAt(0).getName() + "\n");
-             Console.WriteLine("[b] : " + active_perso.ElementAt(1).getName() + "\n");
-             Console.WriteLine("[c] : " + active_perso.ElementAt(2).getName() + "\n");
-             Console.WriteLine("[g] : Choisir un personnage dans la galerie\n");
+       
+        Console.Clear();
+        Console.WriteLine("Selectionnez un personnage\n");
+        Console.WriteLine("[a] : " + active_perso.ElementAt(0).getName() + "\n");
+        Console.WriteLine("[b] : " + active_perso.ElementAt(1).getName() + "\n");
+        Console.WriteLine("[c] : " + active_perso.ElementAt(2).getName() + "\n");
+        Console.WriteLine("[g] : Choisir un personnage dans la galerie\n");
 
         key = Console.ReadKey();
-         //} while (key.Key != ConsoleKey.A || key.Key != ConsoleKey.B || key.Key != ConsoleKey.C);*/
 
         if (key.Key == ConsoleKey.A)
         {
@@ -222,7 +220,6 @@ public class Player
         }
         else if (key.Key == ConsoleKey.G)
         {
-            //Console.WriteLine("pas encore disponible\n");
             changeEquipe();
         }
         current.setPositionX(c.getPositionX(), m);
@@ -234,7 +231,7 @@ public class Player
     {
         int i = 0;
         int[] choix=new int[3];
-        string[] perso = new string[3] /*{"[Vide]","[Vide]","[Vide]"}*/;
+        string[] perso = new string[3];
         perso[0] = "[Vide]"; perso[1] = "[Vide]"; perso[2] = "[Vide]";
         LinkedList<Character> newTeam = new LinkedList<Character>();
         do

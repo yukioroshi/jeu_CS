@@ -247,28 +247,23 @@ public class Character
         if ((newpos < 0) || (newpos > ((m.getNbLigne() * m.getNbColonne())) - 1)
             || m.getField() != m.getCase(newpos))
         {
-            // this.pos = 0;
-            //Console.WriteLine("Erreur : position x invalide setPosition");
-            //Environment.Exit(1);
-
-            /*efface la position ancienne et lui affecte le champ 'field' de la map*/
-            m.changeCase(m.getField(), this.pos);
-            /*ne bouge pas la position du perso*/
-            newpos = this.pos;
-            /*Change une case de la map*/
-            m.changeCase(representation, newpos);
+          /*efface la position ancienne et lui affecte le champ 'field' de la map*/
+          m.changeCase(m.getField(), this.pos);
+          /*ne bouge pas la position du perso*/
+          newpos = this.pos;
+          /*Change une case de la map*/
+          m.changeCase(representation, newpos);
 
 
         }
-        //else if (m.getField() != m.getCase(newpos))
         else
         {
-            /*efface la position ancienne et lui affecte le champ 'field' de la map*/
-            m.changeCase(m.getField(), this.pos);
-            /*bouge la position du perso*/
-            this.pos = newpos;
-            /*Change une case de la map*/
-            m.changeCase(representation, newpos);
+          /*efface la position ancienne et lui affecte le champ 'field' de la map*/
+          m.changeCase(m.getField(), this.pos);
+          /*bouge la position du perso*/
+          this.pos = newpos;
+          /*Change une case de la map*/
+          m.changeCase(representation, newpos);
         }
     }
 

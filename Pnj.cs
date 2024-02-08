@@ -54,6 +54,5 @@ public class Npc
         m.changeCase(" N ", pos);
     }
 
-    //public string reponse(string d)
 
 }

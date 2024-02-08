@@ -53,7 +53,7 @@ public class HelloWorld
         list_obj.AddFirst(obj2);
         list_obj.AddFirst(obj3);
 
-        Npc npc = new Npc("Gottom (fermier)");
+        Npc npc = new Npc("Gottom(fermier)");
         Coffre coffre = new Coffre();
         coffre.addObjet(obj1);
         coffre.addObjet(obj2);
@@ -95,9 +95,6 @@ public class HelloWorld
             // Lire la touche
             keyInfo = Console.ReadKey();
 
-            // Afficher la touche pressée
-            //Console.WriteLine("\nTouche pressée: " + keyInfo.Key);
-
             // Vérifier si la touche 'Q' a été pressée pour quitter la boucle
             if (keyInfo.Key == ConsoleKey.Q)
             {
@@ -131,15 +128,17 @@ public class HelloWorld
                     || map.getCase((p.getCurrentCharacter().getPosition() - 1)) == " E "
                     || map.getCase((p.getCurrentCharacter().getPosition() - 1)) == " M ")
                 {
-                    Console.Clear();
-                    description=p.fight(ennemy);
-                    //p.getCurrentCharacter().fight(ennemy);//fonctionne pas comme prevu
-                    Console.ReadKey();
+                    if (ennemy.isAlive())
+                    {
+                        Console.Clear();
+                        description = p.fight(ennemy);
+                    }
+                    else
+                        description = ennemy.getName() + " a ete vaincu\n";
                 }
                 else
                 {
                     description = "Rapprochez vous d'un ennemi pour combattre";
-                    //Console.ReadKey();
                 }
             }
             else if (keyInfo.Key == ConsoleKey.I)
@@ -148,13 +147,11 @@ public class HelloWorld
                 if (map.getCase((p.getCurrentCharacter().getPosition() + 1)) == " N " 
                     || map.getCase((p.getCurrentCharacter().getPosition() - 1)) == " N ")
                 {
-                    description = "Conversation avec"+ npc.getNameNpc();
-                    //Console.ReadKey();
+                    description = "Conversation avec "+ npc.getNameNpc();
                 }
                 else
                 {
                     description = "Rapprochez vous d'un personnage pour parler";
-                    //Console.ReadKey();
                 }
             }
             else if (keyInfo.Key == ConsoleKey.O)
@@ -174,17 +171,16 @@ public class HelloWorld
                             description += "   " + o.getNameObj() + "\n";
                             p.addObjet(o);
                         }
+                        coffre.getObjCoffre().Clear();
                     }
                 }
                 else
                 {
                     description = "il n'y a pas de coffre ici. Cherchez ailleurs.";
-                    //Console.ReadKey();
                 }
             }
             else if (keyInfo.Key == ConsoleKey.V)
             {
-                // description = "Inventaire : cette fonctionnalite n'est pas encore disponible";
                 p.displayInventaire();
             }
             else if (keyInfo.Key == ConsoleKey.C)
@@ -216,7 +212,6 @@ public class HelloWorld
             map.displayMapWithColor();
             map.displayDescription(description);
             map.indicationManip();
-            //keyInfo = Console.ReadKey();
         }
       
     }

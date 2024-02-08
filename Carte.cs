@@ -12,7 +12,6 @@ public class MapGame
     private int colonne;
     private string[] mapAscii; /*matrice de string de 3 caracter ascii*/
     private string field;   //caractere ascii utiliser pour la matrice
-    // private string description; 
 
     public MapGame()
     {
@@ -20,10 +19,9 @@ public class MapGame
         this.colonne = 0;
         this.mapAscii = new string[0];
         this.field = "";
-        //   this.description = "";
     }
-    /*s est de taille 3*/
-    public MapGame(string s, int ligne, int colonne)
+    
+    public MapGame(string s, int ligne, int colonne)/*s est de taille 3*/
     {   
         this.field = s;
         this.ligne = ligne;
