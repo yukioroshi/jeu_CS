@@ -38,10 +38,24 @@ public class HelloWorld
 
         LinkedList<Competence> list_comp = new LinkedList<Competence>();
         list_comp.AddFirst(competence1);
-        Character chara = new Character(nameCharacter[0], lifepoint, lpmax, magicPoint, mpmax, def_stat, levelCharacter[0], pos[3], " P ", list_comp);
-            //(nameCharacter[0], lifepoint[0], lpmax, magicPoint[0], mpmax, def_stat, levelCharacter[0],pos[0]+" P ",list_comp);
-       
+        Character chara1 = new Character(nameCharacter[0], lifepoint, lpmax, magicPoint, mpmax, def_stat, levelCharacter[0], pos[3], " P ", list_comp);
+        Character chara2 = new Character(nameCharacter[1], lifepoint, lpmax, magicPoint, mpmax, def_stat, levelCharacter[1], pos[3], " P ", list_comp);
+        Character chara3 = new Character(nameCharacter[2], lifepoint, lpmax, magicPoint, mpmax, def_stat, levelCharacter[2], pos[3], " P ", list_comp);
+        Character chara4 = new Character(nameCharacter[3], lifepoint, lpmax, magicPoint, mpmax, def_stat, levelCharacter[3], pos[3], " P ", list_comp);
+        Character chara5 = new Character(nameCharacter[4], lifepoint, lpmax, magicPoint, mpmax, def_stat, levelCharacter[4], pos[3], " P ", list_comp);
+        Character chara6 = new Character(nameCharacter[5], lifepoint, lpmax, magicPoint, mpmax, def_stat, levelCharacter[5], pos[3], " P ", list_comp);
+
+
         LinkedList<Character> st = new LinkedList<Character>();
+        st.AddFirst(chara1);
+        st.AddFirst(chara2);
+        st.AddFirst(chara3);
+        st.AddFirst(chara4);
+        st.AddFirst(chara5);
+        st.AddFirst(chara6);
+        Objet obj = new Objet("Epee Divine");
+        LinkedList<Objet> list_obj = new LinkedList<Objet>();
+        list_obj.AddFirst(obj);
 
 
         do
@@ -52,18 +66,18 @@ public class HelloWorld
 
 
         Character  ennemy = new Character("Ennemy", " E ");
-        Player p = new Player(nameplayer);
+        Player p = new Player(nameplayer,st,list_obj);
         Sauvegarde savePlayer = new Sauvegarde(p.getPlayerName());
         MapGame map = new MapGame(" + ", 10, 10);
 
         string description = "";
-        map.addElement(chara.getRepresentation(), chara.getPositionX(), chara.getPositionY());
+        map.addElement(chara1.getRepresentation(), chara1.getPositionX(), chara1.getPositionY());
         ennemy.setRandomPositionX(map); 
         ennemy.setRandomPositionY(map); 
         map.addElement(ennemy.getRepresentation(), ennemy.getPositionX(), ennemy.getPositionY());
         
         Console.Clear();
-        p.displayInfo();
+        p.displayInfo(p.getCurrentCharacter());
         map.displayMapWithColor();
         map.displayDescription();
         map.indicationManip();
@@ -89,29 +103,29 @@ public class HelloWorld
             }
             else if (keyInfo.Key == ConsoleKey.LeftArrow)
             {
-                chara.move(chara.getPosition() - 1 /*+ map.getNbColonne()*/ , map);
+                chara1.move(chara1.getPosition() - 1 /*+ map.getNbColonne()*/ , map);
             }
             else if (keyInfo.Key == ConsoleKey.DownArrow)
             {
-                chara.move(chara.getPosition() + map.getNbColonne(), map);
+                chara1.move(chara1.getPosition() + map.getNbColonne(), map);
             }
             else if (keyInfo.Key == ConsoleKey.UpArrow)
             {
-                chara.move(chara.getPosition() - map.getNbColonne(), map);
+                chara1.move(chara1.getPosition() - map.getNbColonne(), map);
             }
             else if (keyInfo.Key == ConsoleKey.RightArrow)
             {
-                chara.move(chara.getPosition() + 1 /*map.getNbColonne()*/, map);
+                chara1.move(chara1.getPosition() + 1 /*map.getNbColonne()*/, map);
             }
             else if (keyInfo.Key == ConsoleKey.F)
             {
-                if (map.getCase((chara.getPosition() + 1)) == " E "
-                    || map.getCase((chara.getPosition() + 1)) == " M "
-                    || map.getCase((chara.getPosition() - 1)) == " E "
-                    || map.getCase((chara.getPosition() - 1)) == " M ")
+                if (map.getCase((chara1.getPosition() + 1)) == " E "
+                    || map.getCase((chara1.getPosition() + 1)) == " M "
+                    || map.getCase((chara1.getPosition() - 1)) == " E "
+                    || map.getCase((chara1.getPosition() - 1)) == " M ")
                 {
                     Console.Clear();
-                    chara.fight(ennemy);//fonctionne pas comme prevu
+                    chara1.fight(ennemy);//fonctionne pas comme prevu
                     Console.ReadKey();
                 }
                 else
@@ -122,7 +136,7 @@ public class HelloWorld
             }
             else if (keyInfo.Key == ConsoleKey.I)
             {
-                if (map.getCase((chara.getPosition() + 1)) == " N ")
+                if (map.getCase((chara1.getPosition() + 1)) == " N ")
                 {
                     description = "dialogue avec un pnj";
                     //Console.ReadKey();
@@ -135,7 +149,7 @@ public class HelloWorld
             }
             else if (keyInfo.Key == ConsoleKey.O)
             {
-                if (map.getCase((chara.getPosition() + 1)) == " C ")
+                if (map.getCase((chara1.getPosition() + 1)) == " C ")
                 {
                     description = "Vous avez trouver un coffre";
                     //Console.ReadKey();
@@ -160,6 +174,10 @@ public class HelloWorld
                 // description = "Sauvegarde : cette fonctionnalite n'est pas encore disponible";
                 description=savePlayer.saveMap2(p, map);
             }
+            else if (keyInfo.Key == ConsoleKey.P)
+            {
+                p.selectPerso();
+            }
             else if (keyInfo.Key == ConsoleKey.L)
             {
                 description = "Legende de la map: cette fonctionnalite n'est pas encore disponible";
@@ -170,7 +188,7 @@ public class HelloWorld
             }
 
             Console.Clear();
-            p.displayInfo();
+            p.displayInfo(p.getCurrentCharacter());
             map.displayMapWithColor();
             map.displayDescription(description);
             map.indicationManip();

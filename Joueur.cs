@@ -37,19 +37,19 @@ public class Player
     
     public Player(string name, LinkedList<Character> stored_c, LinkedList<Objet> o)
     {
-        stored_perso = new LinkedList<Character>();
+        stored_perso = stored_c;
         active_perso = new LinkedList<Character>();
-        obj = new LinkedList<Objet>();
-        foreach (Character tmp in stored_c)
-        {//Rpl : le foreach ne permet que de lire, pas de modifier
-            stored_perso.AddLast(tmp);
-        }
-        setActiveCharacter(0, 1, 2);
-        foreach (Objet tmp2 in o)
+        for(int i = 0; i < stored_perso.Count(); i++)
         {
-            obj.AddLast(tmp2);
+            if (i < 3)
+                active_perso.AddFirst(stored_perso.ElementAt(i));
+            else
+                break;
         }
-        current = new Character(active_perso.ElementAt<Character>(0));
+        obj = o;
+        
+       
+        current = active_perso.ElementAt<Character>(0);
         id_name = name;
 
     }
@@ -61,6 +61,7 @@ public class Player
 
     public Character getCurrentCharacter()
     {
+        //current = active_perso.First();
         return current;
     }
     public LinkedList<Character> getActiveCharacter()
@@ -102,10 +103,14 @@ public class Player
         return obj.Count();
     }
 
+    public void setCurrentCharacter(Character c)
+    {
+        current = c;
+    }
     public string toString()
     {
         string res = "";
-        res += id_name + "\n" + current.toString() + "\n";
+        res += id_name + "\n";
         foreach (Character p in active_perso)
         {
             res += p.toString() + "\n";
@@ -142,13 +147,13 @@ public class Player
 
     }
 
-    public void displayInfo()
+    public void displayInfo(Character c)
     {
         Console.WriteLine("id: " + id_name);
-        Console.Write("[" + current.getName() + "]"
-            + " PV:" + current.getLife()
-            + " PM:" + current.getMagicPoint()
-            + " Lvl:" + current.getLevel() + "\n"
+        Console.Write("[" + c.getName() + "]"
+            + " PV:" + c.getLife()
+            + " PM:" + c.getMagicPoint()
+            + " Lvl:" + c.getLevel() + "\n"
             + "team:" + this.getNbActiveCharacter() + "/3\n");
 
     }
@@ -180,7 +185,33 @@ public class Player
         Console.WriteLine("\nappuyez sur une touche pour revenir en arriere");
         Console.ReadKey();
 
+    }
 
+    public void selectPerso()
+    {
+        ConsoleKeyInfo key;
+        /* do
+         {*/
+             Console.Clear();
+             Console.WriteLine("Selectionnez un personnage\n");
+             Console.WriteLine("[a] : " + active_perso.ElementAt(0).getName() + "\n");
+             Console.WriteLine("[b] : " + active_perso.ElementAt(1).getName() + "\n");
+             Console.WriteLine("[c] : " + active_perso.ElementAt(2).getName() + "\n");
+             key = Console.ReadKey();
+         //} while (key.Key != ConsoleKey.A || key.Key != ConsoleKey.B || key.Key != ConsoleKey.C);*/
+
+        if (key.Key == ConsoleKey.A)
+        {
+            current=active_perso.ElementAt(0);
+        }
+        else if (key.Key == ConsoleKey.B)
+        {
+            current = active_perso.ElementAt(1);
+        }
+        else if (key.Key == ConsoleKey.C)
+        {
+            current = active_perso.ElementAt(2);
+        }
     }
 
     /*fonction de sauvegarde*/

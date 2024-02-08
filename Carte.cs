@@ -193,7 +193,9 @@ public class MapGame
         Console.Write(" [c] : changer de map \n");
         Console.Write("[s] : sauvegarder\t");
         Console.Write(" [l] : voir la legende\n");
-        Console.WriteLine("[q] : quitter");
+        Console.Write("[q] : quitter\t\t");
+        Console.WriteLine(" [p] : changer de perso\n");
+
 
         for (int i = 0; i < largeur; i++)
         {

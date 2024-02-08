@@ -1,5 +1,5 @@
 /*classe pour les objets*/
-public abstract class Objet
+public class Objet
 {
     private string name;
 
@@ -14,6 +14,6 @@ public abstract class Objet
     }
 
     public string getNameObj() { return name; }
-    public abstract void effect();
+    public void effect() { return; }
     public string toString() { return "objet:"+name; }
 }

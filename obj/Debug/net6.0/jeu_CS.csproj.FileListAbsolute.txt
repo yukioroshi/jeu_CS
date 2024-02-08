@@ -40,7 +40,6 @@ C:\Users\Marcus\Source\Repos\jeu_CS\obj\Debug\net6.0\refint\jeu_CS.dll
 C:\Users\Marcus\Source\Repos\jeu_CS\obj\Debug\net6.0\jeu_CS.pdb
 C:\Users\Marcus\Source\Repos\jeu_CS\obj\Debug\net6.0\jeu_CS.genruntimeconfig.cache
 C:\Users\Marcus\Source\Repos\jeu_CS\obj\Debug\net6.0\ref\jeu_CS.dll
-C:\Users\mlabady\Source\Repos\jeu_CS\obj\Debug\net6.0\jeu_CS.sourcelink.json
 C:\Users\alesluin\Source\Repos\jeu_CS\bin\Debug\net6.0\jeu_CS.exe
 C:\Users\alesluin\Source\Repos\jeu_CS\bin\Debug\net6.0\jeu_CS.deps.json
 C:\Users\alesluin\Source\Repos\jeu_CS\bin\Debug\net6.0\jeu_CS.runtimeconfig.json
