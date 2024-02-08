@@ -218,8 +218,8 @@ public class Player
         }
         else if (key.Key == ConsoleKey.G)
         {
-            Console.WriteLine("pas encore disponible\n");
-            //changeEquipe();
+            //Console.WriteLine("pas encore disponible\n");
+            changeEquipe();
         }
         current.setPositionX(c.getPositionX(), m);
         current.setPositionY(c.getPositionY(), m);
@@ -228,15 +228,85 @@ public class Player
 
     public void changeEquipe()
     {
-        Console.Clear();
+        int i = 0;
+        int[] choix=new int[3];
+        string[] perso = new string[3] /*{"[Vide]","[Vide]","[Vide]"}*/;
+        perso[0] = "[Vide]"; perso[1] = "[Vide]"; perso[2] = "[Vide]";
         LinkedList<Character> newTeam = new LinkedList<Character>();
-        Console.WriteLine("Composez votre equipe\n");
-        foreach (Character character in stored_perso)
+        do
         {
-            Console.WriteLine("\t[" + character.getName() + "]:  PV:" + character.getLifeMax() + "  PM:" + character.getMagicPointMax() +
-                "  lvl:" + character.getLevel() + "  Atk:" + character.getAtkStat());
-            Console.WriteLine("");
-        }
+            Console.Clear();
+            Console.WriteLine("Galerie\n");
+
+            foreach (Character character in stored_perso)
+            {
+                Console.WriteLine("(" + i + ")\t[" + character.getName() + "]:  PV:" + character.getLifeMax() + "  PM:" + character.getMagicPointMax() +
+                    "  lvl:" + character.getLevel() + "  Atk:" + character.getAtkStat());
+                Console.WriteLine(""); 
+                
+                if (i == stored_perso.Count()-1)
+                    i = 1;
+                else
+                    i++;
+            }
+
+    
+            Console.WriteLine("Composez votre equipe de 3 personnages");
+            choix[0] =  int.Parse(Console.ReadLine());
+            if (choix[0] >= 0 && choix[0] < stored_perso.Count())
+            {
+                if (!newTeam.Contains(stored_perso.ElementAt(choix[0])))
+                {
+                    newTeam.AddFirst(stored_perso.ElementAt(choix[0]));
+                }
+            }
+            else
+            {
+                Console.WriteLine("Choix incorrect votre choix est : " + choix[0]);
+                Console.ReadKey();
+            }
+
+            choix[1] =  int.Parse(Console.ReadLine());
+            if (choix[1] >= 0 && choix[1] < stored_perso.Count())
+            {
+                if (!newTeam.Contains(stored_perso.ElementAt(choix[1])))
+                {
+                    newTeam.AddFirst(stored_perso.ElementAt(choix[1]));
+                }
+            }
+            else
+            {
+                Console.WriteLine("Choix incorrect votre chois est : " + choix[1]);
+                Console.ReadKey();
+            }
+
+            choix[2] =  int.Parse(Console.ReadLine());
+            if (choix[2] >= 0 && choix[2] < stored_perso.Count())
+            {
+                if (!newTeam.Contains(stored_perso.ElementAt(choix[2])))
+                {
+                    newTeam.AddFirst(stored_perso.ElementAt(choix[2]));
+                }
+            }
+            else
+            {
+                Console.WriteLine("Choix incorrect votre chois est : " + choix[2]);
+                Console.ReadKey();
+            }
+           
+
+        } while (newTeam.Count < 3);
+
+        Console.WriteLine("Votre equipe :\n");
+        Console.Write("   " + newTeam.ElementAt(0).getName());
+        Console.Write("   " + newTeam.ElementAt(1).getName());
+        Console.Write("   " + newTeam.ElementAt(2).getName());
+    
+        active_perso = newTeam;
+        Console.WriteLine("\n\nAppuyer sur une touche pour revenir en arriere...");
+        Console.ReadKey();
+
+
     }
     public string fight(Character ennemy)
     {
@@ -252,11 +322,16 @@ public class Player
                    if (tmp.isAlive() && ennemy.isAlive())
                    {
                        tmp.fight(ennemy);
-                   }
-                    if (!ennemy.isAlive())
-                    {
-                        break;
+                       if (!ennemy.isAlive())
+                       {
+                           break;
+                       }
+                        else
+                        {
+                            break;
+                        }
                     }
+                   
                    else
                    {
                        i++;

@@ -11,14 +11,6 @@ public class HelloWorld
 {
     public static void Main(string[] argv)
     {
-        //Test1 t = new Test1();
-        //Console.BackgroundColor = ConsoleColor.Red;
-        /*Console.ForegroundColor = ConsoleColor.Green;
-        Console.WriteLine("[033[0;30m]" +"\t Hello, World!");
-        Console.ForegroundColor = ConsoleColor.White;
-        t.fct();*/
-        //Player p = new Player();
-
         string nameplayer;
         string[] nameCharacter=new string[6];
         int lifepoint = 100, lpmax = 100, magicPoint = 100, mpmax=100, def_stat=10;
@@ -62,6 +54,7 @@ public class HelloWorld
         list_obj.AddFirst(obj3);
 
 
+
         do
         {
             Console.Write("Entrez un nom d'utilisateur : ");
@@ -85,10 +78,7 @@ public class HelloWorld
         map.displayMapWithColor();
         map.displayDescription();
         map.indicationManip();
-        //keyInfo = Console.ReadKey();
-
-        //Process.Start("cmd.exe","/c cls"); //pour executer une commande cmd <=> Console.Clear()
-
+       
         ConsoleKeyInfo keyInfo;
 
         // Boucle while qui continue à lire une touche jusqu'à ce que 'Q' soit pressé
@@ -129,7 +119,7 @@ public class HelloWorld
                     || map.getCase((p.getCurrentCharacter().getPosition() - 1)) == " M ")
                 {
                     Console.Clear();
-                    p.fight(ennemy);
+                    description=p.fight(ennemy);
                     //p.getCurrentCharacter().fight(ennemy);//fonctionne pas comme prevu
                     Console.ReadKey();
                 }
@@ -185,7 +175,8 @@ public class HelloWorld
             }
             else if (keyInfo.Key == ConsoleKey.L)
             {
-                description = "Legende de la map: cette fonctionnalite n'est pas encore disponible";
+                description = "Legende :\n"+
+                    "\tP => le personnage actif du joueur\r\n \tC => coffre\r\n \tO => objet\r\n \tE => Ennemi\r\n \tM => monstre\r\n \tN => NPC";
             }
             else
             {

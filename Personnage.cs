@@ -457,17 +457,17 @@ public class Character
             if (actionennemy == 1)
             {
                 this.lifePoint -= 1;
-                Console.WriteLine("L'ennemi vous donne un coup de poing");
+                Console.WriteLine(ennemy.getName()+" vous donne un coup de poing");
             }
             else if (actionennemy == 2)
             {
                 this.lifePoint -= 2;
-                Console.WriteLine("L'ennemi vous donne un coup de pied");
+                Console.WriteLine(ennemy.getName() + " vous donne un coup de pied");
             }
             else
             {
                 this.lifePoint -= 3;
-                Console.WriteLine("L'ennemi vous charge");
+                Console.WriteLine(ennemy.getName() + " vous charge");
             }
             Console.ReadKey();
             this.magicPoint += 2;

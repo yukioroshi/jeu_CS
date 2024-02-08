@@ -38,7 +38,7 @@ public class Sauvegarde
     /// </summary>
     /// <param name="map"></param>
     /// <return> int </return>return> 
-    public string saveMap2(Player p,MapGame map)
+    public string saveMap2(Player p, MapGame map)
     {
         string result = "";
         try
@@ -51,31 +51,6 @@ public class Sauvegarde
                 {
                     // Écriture des données dans le fichier
                     write.WriteLine(p.toString());
-
-                    /*   write.WriteLine(p.getPlayerName());
-                       write.WriteLine(p.getCurrentCharacter().getName());
-                       write.WriteLine(p.getCurrentCharacter().getLife());
-                       write.WriteLine(p.getCurrentCharacter().getLifeMax());
-                       write.WriteLine(p.getCurrentCharacter().getMagicPoint());
-                       write.WriteLine(p.getCurrentCharacter().getMagicPointMax());
-                       write.WriteLine(p.getCurrentCharacter().getAtkStat());
-                       write.WriteLine(p.getCurrentCharacter().getDefStat());
-                       write.WriteLine(p.getCurrentCharacter().getLevel());
-                       write.WriteLine(p.getCurrentCharacter().getPositionX());
-                       write.WriteLine(p.getCurrentCharacter().getPositionX());
-                       write.WriteLine(p.getCurrentCharacter().getPosition());
-                       write.WriteLine(p.getCurrentCharacter().getRepresentation());
-                           write.WriteLine("namecomp:"+p.getCurrentCharacter().getAtkList().ElementAt<Competence>(0).GetNameCompetence());
-
-                       for (int i=0;i< p.getCurrentCharacter().getAtkList().Count();i++)
-                       {
-                           write.WriteLine("namecomp:"+p.getCurrentCharacter().getAtkList().ElementAt<Competence>(i).GetNameCompetence());
-                           write.WriteLine("levelcomp:" + p.getCurrentCharacter().getAtkList().ElementAt<Competence>(i).GetLevelComp());
-                           write.WriteLine("int type:" + p.getCurrentCharacter().getAtkList().ElementAt<Competence>(i).getTypePersoComp_Int());
-
-                       }*/
-
-
                     for (int i = 0; i < map.size(); i++)
                     {
                         write.WriteLine(map.getElementMap(i));
@@ -87,97 +62,19 @@ public class Sauvegarde
             }
             // Console.WriteLine("\nLa carte a été sauvegardée avec succès.");
             result += "La carte a été sauvegardée avec succès.";
-            return result; 
+            return result;
         }
         catch (Exception e)
         {
             //Console.WriteLine(result+="\nUne erreur s'est produite lors de la sauvegarde de la carte : " + e.Message);
             result += "Une erreur s'est produite lors de la sauvegarde de la carte : " + e.Message;
-            return result;  
+            return result;
         }
     }
 
 
-    public void saveCharacter(string id_player) { }
-    public void saveObject(string id_player) { }
-    public void saveStatPlayer(string id_player) { }
+    public void saveCharacter(string id_player) {/*a implmenter*/ }
+    public void saveObject(string id_player) {/*a implmenter*/ }
+    public void saveStatPlayer(string id_player) { /*a implmenter*/}
 
-    public void saveToJson(Player p, MapGame map)
-    {
-
-        string json = "{" +
-            "\n  " + "\"Player\": {" +
-                  "\n\t\t<\t" + "\"currentPerso\": {" +
-                  "\n\t\t<\t" + "\"activer_perso\": " +
-            "\n  " + "\"MapGame\":{" +
-                      "\n\t   " + "ligne: " + map.getNbLigne() + "," +
-                      "\n\t   " + "colonne: " + map.getNbColonne() + "," +
-                      "\n\t   " + "field: " + map.getField() + "," +
-                      "\n\t   " + "MapAscii: ";
-        for (int i = 0; i < map.size(); i++)
-        {
-            json += map.getElementMap(i);
-        }
-        json += "\n  \t   }\n}";
-
-        string cheminFichier = "Sauvegarde\\" + p.getPlayerName() + ".json";
-
-        try
-        {
-            // Écrire le contenu JSON dans un fichier
-            File.WriteAllText(cheminFichier, json, Encoding.UTF8);
-            Console.WriteLine("Fichier JSON créé avec succès.");
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Une erreur s'est produite : {ex.Message}");
-        }
-    }
-
-
-
-
-
-
-
-    public void saveToJson2()
-    {
-        // Création de l'objet JSON sous forme de chaîne
-        string json = @"{
-            ""personne"": {
-                ""nom"": ""Doe"",
-                ""prenom"": ""John"",
-                ""age"": 30,
-                ""adresse"": {
-                    ""rue"": ""123 Rue Principale"",
-                    ""ville"": ""Ville"",
-                    ""pays"": ""Pays""
-                },
-                ""contacts"": [
-                    {
-                        ""type"": ""email"",
-                        ""valeur"": ""john.doe@example.com""
-                    },
-                    {
-                        ""type"": ""téléphone"",
-                        ""valeur"": ""123-456-7890""
-                    }
-                ]
-            }
-        }";
-
-        // Chemin du fichier JSON
-        string cheminFichier = "exemple.json";
-
-        try
-        {
-            // Écrire le contenu JSON dans un fichier
-            File.WriteAllText(cheminFichier, json, Encoding.UTF8);
-            Console.WriteLine("Fichier JSON créé avec succès.");
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Une erreur s'est produite : {ex.Message}");
-        }
-    }
 }
