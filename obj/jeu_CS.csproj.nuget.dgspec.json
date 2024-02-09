@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\someone\\Source\\Repos\\jeu_CS\\jeu_CS.csproj": {}
+    "C:\\Users\\emirabella\\Source\\Repos\\jeu_CS\\jeu_CS.csproj": {}
   },
   "projects": {
-    "C:\\Users\\someone\\Source\\Repos\\jeu_CS\\jeu_CS.csproj": {
+    "C:\\Users\\emirabella\\Source\\Repos\\jeu_CS\\jeu_CS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\someone\\Source\\Repos\\jeu_CS\\jeu_CS.csproj",
+        "projectUniqueName": "C:\\Users\\emirabella\\Source\\Repos\\jeu_CS\\jeu_CS.csproj",
         "projectName": "jeu_CS",
-        "projectPath": "C:\\Users\\someone\\Source\\Repos\\jeu_CS\\jeu_CS.csproj",
-        "packagesPath": "C:\\Users\\someone\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\someone\\Source\\Repos\\jeu_CS\\obj\\",
+        "projectPath": "C:\\Users\\emirabella\\Source\\Repos\\jeu_CS\\jeu_CS.csproj",
+        "packagesPath": "C:\\Users\\emirabella\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\emirabella\\Source\\Repos\\jeu_CS\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "A:\\Visual Studio\\shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\someone\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\emirabella\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -59,7 +59,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

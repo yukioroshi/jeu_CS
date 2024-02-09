@@ -371,6 +371,7 @@ public class Character
     {
         ConsoleKeyInfo action;
         Random rnd = new Random();
+        int damages;
 
         while (this.isAlive() && ennemy.isAlive())
         {
@@ -456,21 +457,27 @@ public class Character
             }
 
             int actionennemy = rnd.Next(1, 4);
-            if (actionennemy == 1)
+            if (ennemy.lifePoint <= 5)
             {
-                this.lifePoint -= 1;
+                damages = 3;
+                Console.WriteLine(ennemy.getName() + " s'enerve et attaque ferocement");
+            }
+            else if (actionennemy == 1)
+            {
+                damages = 1;
                 Console.WriteLine(ennemy.getName()+" vous donne un coup de poing");
             }
             else if (actionennemy == 2)
             {
-                this.lifePoint -= 2;
+                damages = 2;
                 Console.WriteLine(ennemy.getName() + " vous donne un coup de pied");
             }
             else
             {
-                this.lifePoint -= 3;
+                damages = 3;
                 Console.WriteLine(ennemy.getName() + " vous charge");
             }
+            this.lifePoint -= damages;
             Console.ReadKey();
             this.magicPoint += 2;
         }
